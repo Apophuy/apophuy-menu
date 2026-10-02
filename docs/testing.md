@@ -93,3 +93,8 @@ The timeout exit status in the automated viewer checks is expected: the viewer w
 terminated after the observation interval. Offscreen portal, window-shadow, and
 desktop-containment messages are host-environment diagnostics, not messages from
 the Apophuy package.
+
+The panel already contains Simple Application Launcher 2.5 under the distinct
+package ID `org.kde.plasma.simplekickoff`. Keep that existing instance unchanged.
+During the real-panel matrix, use it as the peer applet for the “activate another
+plasmoid” case and verify that opening either launcher closes the other's popup.

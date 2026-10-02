@@ -5,7 +5,9 @@
 - Installed `org.kde.plasma.kickoff` and `org.kde.plasma.kicker` from Plasma Workspace `6.3.6-2`.
 - Matching Debian `plasma-workspace 6.3.6-2` source, especially `applets/kicker/plugin`.
 - Matching Debian `libplasma 6.3.5-1` source, especially `PlasmoidItem` and `AppletPopup`.
-- Simple Kickoff commit `8a99d70ea20b16fb624fc7ce3de005271178f40f` dated 2024-03-08.
+- User-installed Simple Application Launcher 2.5 (`org.kde.plasma.simplekickoff`),
+  plus its matching upstream commit `8a99d70ea20b16fb624fc7ce3de005271178f40f`
+  dated 2024-03-08.
 - Official [Plasma widget setup](https://develop.kde.org/docs/plasma/widget/setup/), [KF6 porting guide](https://develop.kde.org/docs/plasma/widget/porting_kf6/), [testing guide](https://develop.kde.org/docs/plasma/widget/testing/), and [PlasmoidItem API](https://api.kde.org/qml-org-kde-plasma-plasmoid-plasmoiditem.html).
 
 ## Current Plasma model stack
@@ -51,6 +53,12 @@ After a successful row/action trigger, stock Kickoff sets `expanded = false` whe
 `plasmawindowed` is useful for loading and interaction checks but its implementation sets `hideOnWindowDeactivate` to false. It cannot prove the main outside-click regression fixed. That acceptance test belongs in a real Wayland panel.
 
 ## Simple Kickoff findings
+
+The target workstation already uses Simple Application Launcher 2.5 on a real
+panel. Its installed package is byte-for-byte equivalent to the inspected
+upstream checkout, apart from repository-only files. It is therefore both a
+source reference and an available peer launcher for popup coexistence tests.
+It must not be modified, replaced, or assigned Apophuy's package identity.
 
 Simple Kickoff is a simplified fork of an older Kickoff. Its UX changes are useful:
 
