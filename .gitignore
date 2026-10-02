@@ -1,0 +1,18 @@
+# Coding-agent state is intentionally local to a checkout.
+AGENTS.md
+.agents/
+.codex/
+.agent-skills/
+.mcp/
+.mcp.json
+.codex-*
+
+# Never commit local credentials.
+.env
+.env.*
+!.env.example
+
+# Local build and test output.
+build/
+.cache/
+*.log
