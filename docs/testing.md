@@ -87,7 +87,7 @@ Qt 6.8.2, and `plasmoidviewer` from `plasma-sdk` 6.3.4-1:
 | `plasmoidviewer`, vertical left edge, offscreen | loaded; no project QML errors |
 | `plasmoidviewer`, horizontal bottom edge, scale 2, offscreen | loaded; no project QML errors |
 | `plasmoidviewer`, horizontal bottom edge, real Wayland session | loaded; no project QML errors |
-| Installed real-panel lifecycle matrix | pending |
+| Installed real-panel lifecycle matrix | Milestone 1 core pass; remaining feature-dependent cases listed below |
 
 The timeout exit status in the automated viewer checks is expected: the viewer was
 terminated after the observation interval. Offscreen portal, window-shadow, and
@@ -97,3 +97,29 @@ the Apophuy package.
 Apophuy Application Launcher must pass the “activate another plasmoid” case with
 any available peer applet. It does not depend on Simple Application Launcher for
 runtime or testing.
+
+### Real-panel run on 2026-10-02
+
+The development package was installed for the current user and tested in the
+actual Plasma Wayland session. Both displays were 3840×2160 at 150% scale, with
+an effective 2560×1440 geometry. The test instance was first placed on the top
+panel of screen 0 and then moved to the top panel of screen 1.
+
+| Scenario | Result |
+| --- | --- |
+| 100 sequential open/close cycles (200 native activation calls, 300 ms interval) | pass |
+| 100 fast alternating activations (50 ms interval) | pass |
+| 20 open → activate another plasmoid → close peer cycles | pass |
+| 20 open → show desktop → restore windows cycles | pass |
+| Outside-focus closure during direct panel interaction | pass |
+| Project QML errors, crashes, failed activation calls | none observed |
+
+The automation invoked the applet's native KGlobalAccel activation action; it did
+not inject synthetic Wayland pointer events. The temporary shortcut was removed
+after the run. The applet remains on the top panel of screen 1 for continued
+manual and feature testing.
+
+Escape, application launch, and search-result launch remain in the regression
+matrix. The latter two become testable when their Milestones are implemented.
+Real vertical-panel coverage also remains pending; the vertical representation
+has so far passed only the `plasmoidviewer` smoke test.
