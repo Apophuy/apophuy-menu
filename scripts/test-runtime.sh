@@ -15,4 +15,5 @@ if [ ! -x "$qmltestrunner" ]; then
     exit 1
 fi
 
-QT_QPA_PLATFORM=offscreen "$qmltestrunner" -input "$project_dir/tests/qml"
+QT_QPA_PLATFORM=offscreen timeout --signal=TERM --kill-after=2s 30s \
+    "$qmltestrunner" -input "$project_dir/tests/qml"

@@ -42,6 +42,12 @@ PlasmoidItem {
         }
     }
 
+    readonly property Kicker.RunnerModel runnerModel: Kicker.RunnerModel {
+        appletInterface: root
+        favoritesModel: root.applicationsRootModel.favoritesModel
+        mergeResults: true
+    }
+
     compactRepresentation: CompactRepresentation {
         appletRoot: root
     }
@@ -49,6 +55,7 @@ PlasmoidItem {
     fullRepresentation: FullRepresentation {
         appletRoot: root
         rootModel: root.applicationsRootModel
+        runnerModel: root.runnerModel
     }
 
     Component.onCompleted: {

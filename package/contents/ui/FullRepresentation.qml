@@ -16,9 +16,13 @@ FocusScope {
 
     required property PlasmoidItem appletRoot
     required property var rootModel
+    required property var runnerModel
 
     property var applicationModel: null
     property bool showingFavorites: false
+    property var searchResultsModel: null
+
+    readonly property bool searching: searchField.text.length > 0
 
     implicitWidth: Kirigami.Units.gridUnit * 22
     implicitHeight: Kirigami.Units.gridUnit * 26
@@ -32,8 +36,17 @@ FocusScope {
     focus: true
 
     Keys.onEscapePressed: event => {
-        root.appletRoot.expanded = false;
+        root.handleEscape();
         event.accepted = true;
+    }
+
+    function handleEscape(): void {
+        if (root.searching) {
+            searchField.clear();
+            searchField.forceActiveFocus(Qt.ShortcutFocusReason);
+        } else {
+            root.appletRoot.expanded = false;
+        }
     }
 
     function selectCategory(row: int): void {
@@ -43,79 +56,138 @@ FocusScope {
         }
 
         root.showingFavorites = false;
+        searchField.clear();
         categoryList.currentIndex = row;
         root.applicationModel = root.rootModel.modelForRow(row);
     }
 
     function showFavorites(): void {
         root.showingFavorites = true;
+        searchField.clear();
         categoryList.currentIndex = -1;
         root.applicationModel = root.rootModel.favoritesModel;
     }
 
-    RowLayout {
-        anchors.fill: parent
-        spacing: 0
+    function updateSearchResults(): void {
+        root.searchResultsModel = root.runnerModel.count > 0 ? root.runnerModel.modelForRow(0) : null;
+        applicationList.currentIndex = root.searchResultsModel && root.searchResultsModel.count > 0 ? 0 : -1;
+    }
 
-        ColumnLayout {
+    function triggerFirstSearchResult(): void {
+        if (!root.searchResultsModel || root.searchResultsModel.count < 1) {
+            return;
+        }
+
+        if (root.searchResultsModel.trigger(0, "", null)) {
+            root.appletRoot.expanded = false;
+        }
+    }
+
+    function focusSearchField(): void {
+        Qt.callLater(() => {
+            if (root.appletRoot.expanded) {
+                searchField.forceActiveFocus(Qt.PopupFocusReason);
+                searchField.selectAll();
+            }
+        });
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: Kirigami.Units.smallSpacing
+
+        SearchField {
+            id: searchField
+
+            Layout.fillWidth: true
+            Layout.leftMargin: Kirigami.Units.smallSpacing
+            Layout.rightMargin: Kirigami.Units.smallSpacing
+            Layout.topMargin: Kirigami.Units.smallSpacing
+
+            onAccepted: root.triggerFirstSearchResult()
+            onDownRequested: {
+                if (applicationList.count > 0) {
+                    applicationList.forceActiveFocus(Qt.TabFocusReason);
+                }
+            }
+            onEscapeRequested: root.handleEscape()
+            onQueryEdited: query => {
+                root.runnerModel.query = query;
+                if (query.length === 0) {
+                    root.searchResultsModel = null;
+                } else {
+                    root.updateSearchResults();
+                }
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 10
             spacing: 0
 
-            PlasmaComponents.ItemDelegate {
-                id: favoritesButton
+            ColumnLayout {
+                Layout.fillHeight: true
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                enabled: !root.searching
+                opacity: enabled ? 1 : 0.6
+                spacing: 0
 
-                Layout.fillWidth: true
+                PlasmaComponents.ItemDelegate {
+                    id: favoritesButton
 
-                Accessible.description: i18n("Show favorite applications")
-                focus: root.showingFavorites
-                highlighted: root.showingFavorites
-                icon.name: "bookmarks"
-                KeyNavigation.right: applicationList
-                text: i18n("Favorites")
+                    Layout.fillWidth: true
 
-                onClicked: {
-                    root.showFavorites();
-                    applicationList.forceActiveFocus(Qt.TabFocusReason);
+                    Accessible.description: i18n("Show favorite applications")
+                    focus: root.showingFavorites && !root.searching
+                    highlighted: root.showingFavorites && !root.searching
+                    icon.name: "bookmarks"
+                    KeyNavigation.right: applicationList
+                    text: i18n("Favorites")
+
+                    onClicked: {
+                        root.showFavorites();
+                        applicationList.forceActiveFocus(Qt.TabFocusReason);
+                    }
+                }
+
+                Kirigami.Separator {
+                    Layout.fillWidth: true
+                }
+
+                CategoryList {
+                    id: categoryList
+
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    categoryModel: root.rootModel
+                    focus: !root.showingFavorites && !root.searching
+                    KeyNavigation.right: applicationList
+
+                    onCategoryActivated: row => {
+                        root.selectCategory(row);
+                        applicationList.forceActiveFocus(Qt.TabFocusReason);
+                    }
                 }
             }
 
             Kirigami.Separator {
-                Layout.fillWidth: true
+                Layout.fillHeight: true
             }
 
-            CategoryList {
-                id: categoryList
+            ApplicationList {
+                id: applicationList
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                categoryModel: root.rootModel
-                focus: !root.showingFavorites
-                KeyNavigation.right: applicationList
-
-                onCategoryActivated: row => {
-                    root.selectCategory(row);
-                    applicationList.forceActiveFocus(Qt.TabFocusReason);
-                }
+                applicationModel: root.searching ? root.searchResultsModel : root.applicationModel
+                appletRoot: root.appletRoot
+                emptyText: root.searching ? i18n("No search results") : (root.showingFavorites ? i18n("No favorite applications") : i18n("No applications in this category"))
+                favoritesModel: root.rootModel.favoritesModel
+                KeyNavigation.left: root.searching ? searchField : (root.showingFavorites ? favoritesButton : categoryList)
             }
-        }
-
-        Kirigami.Separator {
-            Layout.fillHeight: true
-        }
-
-        ApplicationList {
-            id: applicationList
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            applicationModel: root.applicationModel
-            appletRoot: root.appletRoot
-            emptyText: root.showingFavorites ? i18n("No favorite applications") : i18n("No applications in this category")
-            favoritesModel: root.rootModel.favoritesModel
-            KeyNavigation.left: root.showingFavorites ? favoritesButton : categoryList
         }
     }
 
@@ -133,12 +205,44 @@ FocusScope {
         }
     }
 
+    Connections {
+        target: root.runnerModel
+
+        function onCountChanged(): void {
+            root.updateSearchResults();
+        }
+
+        function onQueryFinished(): void {
+            root.updateSearchResults();
+        }
+
+        function onRequestUpdateQuery(query): void {
+            searchField.text = query;
+        }
+    }
+
+    Connections {
+        target: root.appletRoot
+
+        function onExpandedChanged(): void {
+            if (root.appletRoot.expanded) {
+                root.focusSearchField();
+            } else {
+                searchField.clear();
+                root.searchResultsModel = null;
+            }
+        }
+    }
+
     Component.onCompleted: {
         root.rootModel.refresh();
         if (root.rootModel.favoritesModel.count > 0) {
             root.showFavorites();
         } else {
             root.selectCategory(0);
+        }
+        if (root.appletRoot.expanded) {
+            root.focusSearchField();
         }
     }
 }

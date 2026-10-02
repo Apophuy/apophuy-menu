@@ -166,3 +166,20 @@ The first Favorites implementation was checked on 2026-10-02:
 Favorites use the native per-instance `KAStatsFavoritesModel` namespace. The UI
 does not maintain a separate favorites file or impersonate another launcher's
 client identity.
+
+## Current Milestone 4 smoke-test record
+
+The first search implementation was checked on 2026-10-02:
+
+| Check | Result |
+| --- | --- |
+| Static QML/package checks | pass; only documented host-context lint warnings |
+| Search UI and `RunnerModel` load through offscreen `plasmoidviewer` | pass; no project QML errors |
+| Application-runner query for KCalc | pass; at least one result returned |
+| Search UI load in the installed Wayland panel instance | pass; no project QML errors |
+| Type query, navigate results, Enter launch, two-stage Escape | pending direct interaction check |
+
+The automated query test limits its runner set to `krunner_services` so unrelated
+headless runner failures cannot hang the suite. The product model intentionally
+keeps Plasma's configured runner set. `scripts/test-runtime.sh` terminates after
+30 seconds if a runtime dependency fails to respond.
