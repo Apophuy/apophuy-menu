@@ -17,6 +17,7 @@ FocusScope {
     required property PlasmoidItem appletRoot
     required property var rootModel
     required property var runnerModel
+    required property var systemModel
 
     property var applicationModel: null
     property bool showingFavorites: false
@@ -188,6 +189,20 @@ FocusScope {
                 favoritesModel: root.rootModel.favoritesModel
                 KeyNavigation.left: root.searching ? searchField : (root.showingFavorites ? favoritesButton : categoryList)
             }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+
+        SystemActions {
+            Layout.fillWidth: true
+            Layout.leftMargin: Kirigami.Units.smallSpacing
+            Layout.rightMargin: Kirigami.Units.smallSpacing
+            Layout.bottomMargin: Kirigami.Units.smallSpacing
+
+            appletRoot: root.appletRoot
+            systemModel: root.systemModel
         }
     }
 

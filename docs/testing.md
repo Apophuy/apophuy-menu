@@ -183,3 +183,20 @@ The automated query test limits its runner set to `krunner_services` so unrelate
 headless runner failures cannot hang the suite. The product model intentionally
 keeps Plasma's configured runner set. `scripts/test-runtime.sh` terminates after
 30 seconds if a runtime dependency fails to respond.
+
+## Current Milestone 5 smoke-test record
+
+The first system-actions implementation was checked on 2026-10-02:
+
+| Check | Result |
+| --- | --- |
+| Static QML/package checks | pass; only documented host-context lint warnings |
+| System-actions UI load through offscreen `plasmoidviewer` | pass; no project QML errors |
+| Available-actions model and disabled-role test | pass |
+| Installed package matches the checked working-tree package | pass |
+| Invoke Lock, Logout, Suspend, Hibernate, Restart, and Shutdown from the visible controls | pending deliberate manual checks |
+
+The UI is populated by Plasma's native `SystemModel`, so actions unavailable on
+the current machine are omitted and disabled entries cannot be invoked. Automated
+tests intentionally inspect availability without triggering session or power
+operations. A successful native `trigger()` closes the launcher popup.

@@ -48,6 +48,8 @@ PlasmoidItem {
         mergeResults: true
     }
 
+    readonly property Kicker.SystemModel systemModel: Kicker.SystemModel {}
+
     compactRepresentation: CompactRepresentation {
         appletRoot: root
     }
@@ -56,6 +58,7 @@ PlasmoidItem {
         appletRoot: root
         rootModel: root.applicationsRootModel
         runnerModel: root.runnerModel
+        systemModel: root.systemModel
     }
 
     Component.onCompleted: {
