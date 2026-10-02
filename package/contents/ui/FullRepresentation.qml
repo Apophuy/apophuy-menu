@@ -8,6 +8,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasmoid
 
 FocusScope {
@@ -17,6 +18,7 @@ FocusScope {
     required property var rootModel
 
     property var applicationModel: null
+    property bool showingFavorites: false
 
     implicitWidth: Kirigami.Units.gridUnit * 22
     implicitHeight: Kirigami.Units.gridUnit * 26
@@ -40,27 +42,62 @@ FocusScope {
             return;
         }
 
+        root.showingFavorites = false;
         categoryList.currentIndex = row;
         root.applicationModel = root.rootModel.modelForRow(row);
+    }
+
+    function showFavorites(): void {
+        root.showingFavorites = true;
+        categoryList.currentIndex = -1;
+        root.applicationModel = root.rootModel.favoritesModel;
     }
 
     RowLayout {
         anchors.fill: parent
         spacing: 0
 
-        CategoryList {
-            id: categoryList
-
+        ColumnLayout {
             Layout.fillHeight: true
             Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+            spacing: 0
 
-            categoryModel: root.rootModel
-            focus: true
-            KeyNavigation.right: applicationList
+            PlasmaComponents.ItemDelegate {
+                id: favoritesButton
 
-            onCategoryActivated: row => {
-                root.selectCategory(row);
-                applicationList.forceActiveFocus(Qt.TabFocusReason);
+                Layout.fillWidth: true
+
+                Accessible.description: i18n("Show favorite applications")
+                focus: root.showingFavorites
+                highlighted: root.showingFavorites
+                icon.name: "bookmarks"
+                KeyNavigation.right: applicationList
+                text: i18n("Favorites")
+
+                onClicked: {
+                    root.showFavorites();
+                    applicationList.forceActiveFocus(Qt.TabFocusReason);
+                }
+            }
+
+            Kirigami.Separator {
+                Layout.fillWidth: true
+            }
+
+            CategoryList {
+                id: categoryList
+
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                categoryModel: root.rootModel
+                focus: !root.showingFavorites
+                KeyNavigation.right: applicationList
+
+                onCategoryActivated: row => {
+                    root.selectCategory(row);
+                    applicationList.forceActiveFocus(Qt.TabFocusReason);
+                }
             }
         }
 
@@ -76,7 +113,9 @@ FocusScope {
 
             applicationModel: root.applicationModel
             appletRoot: root.appletRoot
-            KeyNavigation.left: categoryList
+            emptyText: root.showingFavorites ? i18n("No favorite applications") : i18n("No applications in this category")
+            favoritesModel: root.rootModel.favoritesModel
+            KeyNavigation.left: root.showingFavorites ? favoritesButton : categoryList
         }
     }
 
@@ -84,6 +123,11 @@ FocusScope {
         target: root.rootModel
 
         function onRefreshed(): void {
+            if (root.showingFavorites) {
+                root.showFavorites();
+                return;
+            }
+
             const selectedRow = Math.max(0, categoryList.currentIndex);
             root.selectCategory(Math.min(selectedRow, root.rootModel.count - 1));
         }
@@ -91,6 +135,10 @@ FocusScope {
 
     Component.onCompleted: {
         root.rootModel.refresh();
-        root.selectCategory(0);
+        if (root.rootModel.favoritesModel.count > 0) {
+            root.showFavorites();
+        } else {
+            root.selectCategory(0);
+        }
     }
 }

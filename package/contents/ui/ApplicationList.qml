@@ -14,6 +14,8 @@ ListView {
 
     required property var applicationModel
     required property var appletRoot
+    required property string emptyText
+    required property var favoritesModel
 
     activeFocusOnTab: true
     clip: true
@@ -25,6 +27,7 @@ ListView {
     delegate: ApplicationDelegate {
         applicationModel: root.applicationModel
         appletRoot: root.appletRoot
+        favoritesModel: root.favoritesModel
     }
 
     function triggerCurrent(): void {
@@ -48,6 +51,6 @@ ListView {
     PlasmaComponents.Label {
         anchors.centerIn: parent
         visible: root.count === 0
-        text: i18n("No applications in this category")
+        text: root.emptyText
     }
 }

@@ -48,6 +48,16 @@ Run the repeatable static checks from any working directory:
 ./scripts/check.sh
 ```
 
+Run QML runtime tests from the active Plasma user session:
+
+```bash
+./scripts/test-runtime.sh
+```
+
+The runtime suite uses a dedicated KActivities client ID and removes its test
+favorite during cleanup. It does not use the installed applet instance's
+favorites namespace.
+
 For windowed checks with the installed Plasma SDK:
 
 ```bash
@@ -139,3 +149,20 @@ The first application-model implementation was checked on 2026-10-02:
 The implementation calls the selected Kicker child model's `trigger()` method
 and closes the applet only when that method reports success. It does not parse or
 execute desktop files itself.
+
+## Current Milestone 3 smoke-test record
+
+The first Favorites implementation was checked on 2026-10-02:
+
+| Check | Result |
+| --- | --- |
+| Static QML/package checks | pass; only documented host-context lint warnings |
+| Favorites UI load through offscreen `plasmoidviewer` | pass; no project QML errors |
+| Favorites UI load in the installed Wayland panel instance | pass; no project QML errors |
+| Isolated KActivities add → refresh → remove test | pass |
+| Add/remove through the visible star control | pending direct interaction check |
+| Launch from the visible Favorites list | pending direct interaction check |
+
+Favorites use the native per-instance `KAStatsFavoritesModel` namespace. The UI
+does not maintain a separate favorites file or impersonate another launcher's
+client identity.
