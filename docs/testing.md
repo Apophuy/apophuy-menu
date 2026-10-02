@@ -123,3 +123,19 @@ Escape, application launch, and search-result launch remain in the regression
 matrix. The latter two become testable when their Milestones are implemented.
 Real vertical-panel coverage also remains pending; the vertical representation
 has so far passed only the `plasmoidviewer` smoke test.
+
+## Current Milestone 2 smoke-test record
+
+The first application-model implementation was checked on 2026-10-02:
+
+| Check | Result |
+| --- | --- |
+| Static QML/package checks | pass; only documented host-context lint warnings |
+| `Kicker.RootModel` load through offscreen `plasmoidviewer` | pass; no project QML errors |
+| Installed model load in the real Wayland panel on screen 1 | pass; no project QML errors |
+| Category selection and application icons | pending direct interaction check |
+| Successful application launch and popup closure | pending direct interaction check |
+
+The implementation calls the selected Kicker child model's `trigger()` method
+and closes the applet only when that method reports success. It does not parse or
+execute desktop files itself.

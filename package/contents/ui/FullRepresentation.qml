@@ -8,13 +8,15 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasmoid
 
 FocusScope {
     id: root
 
     required property PlasmoidItem appletRoot
+    required property var rootModel
+
+    property var applicationModel: null
 
     implicitWidth: Kirigami.Units.gridUnit * 22
     implicitHeight: Kirigami.Units.gridUnit * 26
@@ -32,35 +34,63 @@ FocusScope {
         event.accepted = true;
     }
 
-    ColumnLayout {
-        anchors.centerIn: parent
-        spacing: Kirigami.Units.largeSpacing
-
-        Kirigami.Icon {
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-            Layout.preferredHeight: Kirigami.Units.iconSizes.huge
-
-            source: "start-here-kde"
+    function selectCategory(row: int): void {
+        if (row < 0 || row >= root.rootModel.count) {
+            root.applicationModel = null;
+            return;
         }
 
-        PlasmaComponents.Label {
-            Layout.alignment: Qt.AlignHCenter
+        categoryList.currentIndex = row;
+        root.applicationModel = root.rootModel.modelForRow(row);
+    }
 
-            text: i18n("Apophuy Application Launcher")
+    RowLayout {
+        anchors.fill: parent
+        spacing: 0
+
+        CategoryList {
+            id: categoryList
+
+            Layout.fillHeight: true
+            Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+
+            categoryModel: root.rootModel
+            focus: true
+            KeyNavigation.right: applicationList
+
+            onCategoryActivated: row => {
+                root.selectCategory(row);
+                applicationList.forceActiveFocus(Qt.TabFocusReason);
+            }
         }
 
-        PlasmaComponents.Label {
-            Layout.alignment: Qt.AlignHCenter
-
-            text: i18n("Minimal launcher shell")
+        Kirigami.Separator {
+            Layout.fillHeight: true
         }
 
-        PlasmaComponents.Button {
-            Layout.alignment: Qt.AlignHCenter
+        ApplicationList {
+            id: applicationList
 
-            text: i18n("Close")
-            onClicked: root.appletRoot.expanded = false
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            applicationModel: root.applicationModel
+            appletRoot: root.appletRoot
+            KeyNavigation.left: categoryList
         }
+    }
+
+    Connections {
+        target: root.rootModel
+
+        function onRefreshed(): void {
+            const selectedRow = Math.max(0, categoryList.currentIndex);
+            root.selectCategory(Math.min(selectedRow, root.rootModel.count - 1));
+        }
+    }
+
+    Component.onCompleted: {
+        root.rootModel.refresh();
+        root.selectCategory(0);
     }
 }
