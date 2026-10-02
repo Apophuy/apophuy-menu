@@ -9,6 +9,8 @@
 
 Windowed smoke tests do not replace panel testing. In Plasma 6.3.6, `plasmawindowed` disables `hideOnWindowDeactivate`, so it cannot validate outside-click closure.
 
+Standalone `qmllint` cannot resolve Plasma's context-provided plasmoid module in this Debian installation. Its import/type/context warnings must be reviewed against `docs/development-environment.md`; parser errors and warnings from resolvable Qt/KF modules still fail the check. A Plasma-host load is mandatory alongside linting.
+
 ## Popup state contract
 
 | Initial state | Event | Expected state | Required observation |

@@ -52,6 +52,8 @@ find /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde -maxdepth 3 -type f -name qmldir 
 | `journalctl`, `coredumpctl`, `gdb` | installed | runtime diagnostics |
 | `valgrind`, `apitrace`, `renderdoc` | not detected | not required for Milestone 0 |
 
+Debian's runtime does not install a discoverable `qmldir`/QML type description for the context-provided `org.kde.plasma.plasmoid` module or the private Kicker plugin. Standalone `qmllint` therefore reports unresolved `PlasmoidItem`, `Plasmoid`, and `i18n` warnings even for system plasmoid code. Continue using it to catch parser and ordinary QML issues, but do not treat those specific host-context warnings as product defects. Type/runtime validation must also load the package through a Plasma host. Do not suppress other warning classes globally.
+
 The only currently required root installation is Plasma SDK:
 
 ```bash
