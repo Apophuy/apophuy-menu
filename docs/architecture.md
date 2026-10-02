@@ -2,7 +2,10 @@
 
 ## Status and scope
 
-The working product name is **Apophuy Menu** and the provisional package ID is `io.github.apophuy.menu`. The first release targets Debian 13, Plasma 6.3.x, Qt 6.8, KF6 6.13, and Wayland. X11 compatibility is opportunistic and must not shape the design.
+The product name is **Apophuy Application Launcher** and the package ID is
+`io.github.apophuy.applicationlauncher`. The first release targets Debian 13,
+Plasma 6.3.x, Qt 6.8, KF6 6.13, and Wayland. X11 compatibility is opportunistic
+and must not shape the design.
 
 Milestone 0 deliberately contains no plasmoid UI. This document defines the boundary for Milestone 1 and later implementation.
 

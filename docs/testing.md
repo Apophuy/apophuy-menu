@@ -68,9 +68,9 @@ remove it when it is no longer needed:
 For an installed development package:
 
 ```bash
-plasmawindowed io.github.apophuy.menu
-QT_LOGGING_RULES='qml.debug=true' plasmawindowed io.github.apophuy.menu
-journalctl --user -f | grep -E 'plasmashell|qml|io.github.apophuy.menu'
+plasmawindowed io.github.apophuy.applicationlauncher
+QT_LOGGING_RULES='qml.debug=true' plasmawindowed io.github.apophuy.applicationlauncher
+journalctl --user -f | grep -E 'plasmashell|qml|io.github.apophuy.applicationlauncher'
 ```
 
 The final popup matrix must be run from the real panel, not inferred from these commands.
@@ -94,7 +94,6 @@ terminated after the observation interval. Offscreen portal, window-shadow, and
 desktop-containment messages are host-environment diagnostics, not messages from
 the Apophuy package.
 
-The panel already contains Simple Application Launcher 2.5 under the distinct
-package ID `org.kde.plasma.simplekickoff`. Keep that existing instance unchanged.
-During the real-panel matrix, use it as the peer applet for the “activate another
-plasmoid” case and verify that opening either launcher closes the other's popup.
+Apophuy Application Launcher must pass the “activate another plasmoid” case with
+any available peer applet. It does not depend on Simple Application Launcher for
+runtime or testing.

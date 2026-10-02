@@ -5,7 +5,7 @@
 
 set -eu
 
-plugin_id=io.github.apophuy.menu
+plugin_id=io.github.apophuy.applicationlauncher
 
 kpackagetool6 --type Plasma/Applet --remove "$plugin_id"
 printf 'Removed %s from the current user installation.\n' "$plugin_id"

@@ -25,7 +25,7 @@ MouseArea {
     Layout.preferredWidth: implicitWidth
     Layout.preferredHeight: implicitHeight
 
-    Accessible.name: i18n("Apophuy Menu")
+    Accessible.name: i18n("Apophuy Application Launcher")
     Accessible.role: Accessible.Button
     hoverEnabled: true
 

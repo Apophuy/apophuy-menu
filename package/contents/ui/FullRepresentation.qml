@@ -47,7 +47,7 @@ FocusScope {
         PlasmaComponents.Label {
             Layout.alignment: Qt.AlignHCenter
 
-            text: i18n("Apophuy Menu")
+            text: i18n("Apophuy Application Launcher")
         }
 
         PlasmaComponents.Label {

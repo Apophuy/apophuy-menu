@@ -17,7 +17,7 @@ PlasmoidItem {
 
     hideOnWindowDeactivate: true
     preferredRepresentation: compactRepresentation
-    toolTipMainText: i18n("Apophuy Menu")
+    toolTipMainText: i18n("Apophuy Application Launcher")
     toolTipSubText: i18n("Open the application launcher")
 
     Plasmoid.icon: "start-here-kde"
