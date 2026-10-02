@@ -40,8 +40,8 @@ find /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde -maxdepth 3 -type f -name qmldir 
 | Tool | Status | Notes |
 | --- | --- | --- |
 | `plasmawindowed` | installed | `/usr/bin/plasmawindowed`, from `plasma-workspace` |
-| `plasmoidviewer` | missing | provided by Debian's `plasma-sdk` package |
-| `plasma-sdk` | missing | candidate version `6.3.4-1` |
+| `plasmoidviewer` | installed | `/usr/bin/plasmoidviewer`, from `plasma-sdk` |
+| `plasma-sdk` | installed | Debian package version `6.3.4-1` |
 | `kpackagetool6` | installed | version `2.0` |
 | `qmllint` | installed | Qt `6.8.2`; use `/usr/lib/qt6/bin/qmllint` |
 | `qmlformat` | installed | Qt `6.8.2`; use `/usr/lib/qt6/bin/qmlformat` |
@@ -54,13 +54,10 @@ find /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde -maxdepth 3 -type f -name qmldir 
 
 Debian's runtime does not install a discoverable `qmldir`/QML type description for the context-provided `org.kde.plasma.plasmoid` module or the private Kicker plugin. Standalone `qmllint` therefore reports unresolved `PlasmoidItem`, `Plasmoid`, and `i18n` warnings even for system plasmoid code. Continue using it to catch parser and ordinary QML issues, but do not treat those specific host-context warnings as product defects. Type/runtime validation must also load the package through a Plasma host. Do not suppress other warning classes globally.
 
-The only currently required root installation is Plasma SDK:
-
-```bash
-sudo apt install plasma-sdk
-```
-
-Do not run this from the coding agent. Once the user installs it, verify with `plasmoidviewer --version` and update this document.
+No additional root-level installation is currently required. Plasma SDK was installed
+by the user after the initial inventory. GUI execution still requires access to the
+real Wayland session; a failure from the restricted coding sandbox is not an SDK
+installation failure.
 
 ## Exact source snapshots used for research
 

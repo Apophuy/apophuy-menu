@@ -42,13 +42,27 @@ Record the Plasma/libplasma versions, panel location, scale factor, display coun
 
 ## Development commands
 
-Once the package exists and Plasma SDK is installed:
+Run the repeatable static checks from any working directory:
+
+```bash
+./scripts/check.sh
+```
+
+For windowed checks with the installed Plasma SDK:
 
 ```bash
 /usr/lib/qt6/bin/qmllint -I /usr/lib/x86_64-linux-gnu/qt6/qml package/contents/ui/main.qml
 plasmoidviewer -a package -l bottomedge -f horizontal
 plasmoidviewer -a package -l leftedge -f vertical
 QT_SCALE_FACTOR=2 plasmoidviewer -a package -l bottomedge -f horizontal
+```
+
+Install or update the development package for the current user (no `sudo`), then
+remove it when it is no longer needed:
+
+```bash
+./scripts/install.sh
+./scripts/uninstall.sh
 ```
 
 For an installed development package:
@@ -60,3 +74,22 @@ journalctl --user -f | grep -E 'plasmashell|qml|io.github.apophuy.menu'
 ```
 
 The final popup matrix must be run from the real panel, not inferred from these commands.
+
+## Current Milestone 1 smoke-test record
+
+Recorded on 2026-10-02 with Plasma Desktop 6.3.6, libplasma 6.3.5,
+Qt 6.8.2, and `plasmoidviewer` from `plasma-sdk` 6.3.4-1:
+
+| Check | Result |
+| --- | --- |
+| Static package check (`./scripts/check.sh`) | pass; only the documented host-context `qmllint` warnings |
+| `plasmoidviewer`, horizontal bottom edge, offscreen | loaded; no project QML errors |
+| `plasmoidviewer`, vertical left edge, offscreen | loaded; no project QML errors |
+| `plasmoidviewer`, horizontal bottom edge, scale 2, offscreen | loaded; no project QML errors |
+| `plasmoidviewer`, horizontal bottom edge, real Wayland session | loaded; no project QML errors |
+| Installed real-panel lifecycle matrix | pending |
+
+The timeout exit status in the automated viewer checks is expected: the viewer was
+terminated after the observation interval. Offscreen portal, window-shadow, and
+desktop-containment messages are host-environment diagnostics, not messages from
+the Apophuy package.
