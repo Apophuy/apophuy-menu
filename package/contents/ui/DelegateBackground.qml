@@ -1,0 +1,21 @@
+/*
+    SPDX-FileCopyrightText: 2026 Apophuy
+    SPDX-License-Identifier: GPL-2.0-or-later
+*/
+
+pragma ComponentBehavior: Bound
+
+import QtQuick
+import org.kde.kirigami as Kirigami
+
+Rectangle {
+    id: root
+
+    required property var control
+    required property var design
+
+    border.color: root.control.activeFocus ? root.design.focus : "transparent"
+    border.width: root.control.activeFocus ? 2 : 0
+    color: root.control.highlighted || root.control.down ? root.design.selected : (root.control.hovered ? root.design.hover : "transparent")
+    radius: Kirigami.Units.cornerRadius
+}

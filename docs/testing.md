@@ -200,3 +200,35 @@ The UI is populated by Plasma's native `SystemModel`, so actions unavailable on
 the current machine are omitted and disabled entries cannot be invoked. Automated
 tests intentionally inspect availability without triggering session or power
 operations. A successful native `trigger()` closes the launcher popup.
+
+## Current Milestone 6 smoke-test record
+
+The visual design implementation was checked on 2026-10-04:
+
+| Check | Result |
+| --- | --- |
+| Static QML/package checks | pass; only documented host-context lint warnings |
+| Semantic token unit tests | pass for System, Light, and Dark mode selection |
+| White glyph contrast for all eight known system-action IDs | pass at 4.5:1 or greater |
+| Explicit-theme primary, secondary, and selected text contrast | pass at the documented 7:1 / 4.5:1 thresholds |
+| Full runtime suite | pass; 15 tests across design tokens, Favorites, RunnerModel, and SystemModel |
+| KPackage upgrade in the user plasmoid directory | pass |
+| Full representation reload in the real Wayland panel on screen 2 | pass; fixed-height tool row, category column, and three-column application grid render correctly |
+| Follow system visual review | pass; system action hues, pseudo-depth, card hierarchy, spacing, and legibility verified at 150% scale |
+| Explicit Light and Dark visual review | pass; user screenshots verified both palettes at 150% scale |
+| Selected and keyboard-focus state review | pass; category selection and search focus are distinct in panel screenshots |
+| Hover state review | pending direct interaction check |
+
+The initial `SystemPalette` load exposed that Plasma may briefly report some
+palette roles as undefined while rebuilding the shell. Semantic fallbacks now
+cover that startup interval. A call to Plasma 6.3.6's `refreshCurrentShell()`
+caused the old shell process to crash during shutdown; systemd restored
+`plasmashell` automatically after roughly two seconds. Do not use that method as
+the routine development reload path on this target system.
+
+The first wide-layout revision only assigned a preferred height to its tool row.
+Qt Quick Layouts allowed the row's fill-height children to consume the popup,
+pushing the workspace below the visible bounds. Equal minimum, preferred, and
+maximum tool-row heights now make that constraint deterministic. The corrected
+layout was reloaded and visually verified in the real panel with no project QML
+errors in the journal.

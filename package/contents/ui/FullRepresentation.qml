@@ -17,24 +17,52 @@ FocusScope {
     required property PlasmoidItem appletRoot
     required property var rootModel
     required property var runnerModel
+    required property var systemPalette
     required property var systemModel
+    required property int themeMode
 
     property var applicationModel: null
     property bool showingFavorites: false
     property var searchResultsModel: null
 
     readonly property bool searching: searchField.text.length > 0
+    readonly property real headerHeight: Kirigami.Units.gridUnit * 2.7
 
-    implicitWidth: Kirigami.Units.gridUnit * 22
-    implicitHeight: Kirigami.Units.gridUnit * 26
+    implicitWidth: Kirigami.Units.gridUnit * 34
+    implicitHeight: Kirigami.Units.gridUnit * 34
 
-    Layout.minimumWidth: Kirigami.Units.gridUnit * 16
-    Layout.minimumHeight: Kirigami.Units.gridUnit * 18
+    Layout.minimumWidth: implicitWidth
+    Layout.minimumHeight: implicitHeight
     Layout.preferredWidth: implicitWidth
     Layout.preferredHeight: implicitHeight
 
     activeFocusOnTab: true
     focus: true
+
+    Kirigami.Theme.backgroundColor: design.background
+    Kirigami.Theme.disabledTextColor: design.secondaryText
+    Kirigami.Theme.focusColor: design.focus
+    Kirigami.Theme.highlightColor: design.selected
+    Kirigami.Theme.highlightedTextColor: design.selectedText
+    Kirigami.Theme.hoverColor: design.hover
+    Kirigami.Theme.inherit: false
+    Kirigami.Theme.negativeTextColor: design.destructive
+    Kirigami.Theme.neutralTextColor: design.warning
+    Kirigami.Theme.positiveTextColor: design.success
+    Kirigami.Theme.textColor: design.primaryText
+
+    DesignTokens {
+        id: design
+
+        systemBackground: root.systemPalette && root.systemPalette.background !== undefined ? root.systemPalette.background : "#20252d"
+        systemHighlight: root.systemPalette && root.systemPalette.highlight !== undefined ? root.systemPalette.highlight : "#3f88c5"
+        systemHighlightedText: root.systemPalette && root.systemPalette.highlightedText !== undefined ? root.systemPalette.highlightedText : "#ffffff"
+        systemNegative: root.systemPalette && root.systemPalette.negative !== undefined ? root.systemPalette.negative : "#e35d6a"
+        systemNeutral: root.systemPalette && root.systemPalette.neutral !== undefined ? root.systemPalette.neutral : "#e7a13d"
+        systemPositive: root.systemPalette && root.systemPalette.positive !== undefined ? root.systemPalette.positive : "#55b879"
+        systemText: root.systemPalette && root.systemPalette.text !== undefined ? root.systemPalette.text : "#f4f6f8"
+        themeMode: root.themeMode
+    }
 
     Keys.onEscapePressed: event => {
         root.handleEscape();
@@ -93,31 +121,65 @@ FocusScope {
         });
     }
 
+    Rectangle {
+        anchors.fill: parent
+        color: design.background
+        radius: Kirigami.Units.cornerRadius
+    }
+
     ColumnLayout {
         anchors.fill: parent
-        spacing: Kirigami.Units.smallSpacing
+        anchors.margins: Kirigami.Units.largeSpacing
+        spacing: Kirigami.Units.largeSpacing
 
-        SearchField {
-            id: searchField
-
+        RowLayout {
             Layout.fillWidth: true
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            Layout.rightMargin: Kirigami.Units.smallSpacing
-            Layout.topMargin: Kirigami.Units.smallSpacing
+            Layout.maximumHeight: root.headerHeight
+            Layout.minimumHeight: root.headerHeight
+            Layout.preferredHeight: root.headerHeight
+            spacing: Kirigami.Units.largeSpacing
 
-            onAccepted: root.triggerFirstSearchResult()
-            onDownRequested: {
-                if (applicationList.count > 0) {
-                    applicationList.forceActiveFocus(Qt.TabFocusReason);
+            Rectangle {
+                Layout.fillHeight: true
+                Layout.maximumWidth: Kirigami.Units.gridUnit * 10
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 10
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                border.color: design.border
+                border.width: 1
+                color: design.elevatedBackground
+                radius: Kirigami.Units.cornerRadius
+
+                SystemActions {
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Units.smallSpacing
+
+                    appletRoot: root.appletRoot
+                    compact: true
+                    design: design
+                    systemModel: root.systemModel
                 }
             }
-            onEscapeRequested: root.handleEscape()
-            onQueryEdited: query => {
-                root.runnerModel.query = query;
-                if (query.length === 0) {
-                    root.searchResultsModel = null;
-                } else {
-                    root.updateSearchResults();
+
+            SearchField {
+                id: searchField
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                design: design
+                onAccepted: root.triggerFirstSearchResult()
+                onDownRequested: {
+                    if (applicationList.count > 0) {
+                        applicationList.forceActiveFocus(Qt.TabFocusReason);
+                    }
+                }
+                onEscapeRequested: root.handleEscape()
+                onQueryEdited: query => {
+                    root.runnerModel.query = query;
+                    if (query.length === 0) {
+                        root.searchResultsModel = null;
+                    } else {
+                        root.updateSearchResults();
+                    }
                 }
             }
         }
@@ -125,84 +187,101 @@ FocusScope {
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            spacing: 0
+            spacing: Kirigami.Units.largeSpacing
 
-            ColumnLayout {
+            Rectangle {
                 Layout.fillHeight: true
+                Layout.maximumWidth: Kirigami.Units.gridUnit * 10
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 10
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                border.color: design.border
+                border.width: 1
+                color: design.elevatedBackground
                 enabled: !root.searching
                 opacity: enabled ? 1 : 0.6
-                spacing: 0
+                radius: Kirigami.Units.cornerRadius
 
-                PlasmaComponents.ItemDelegate {
-                    id: favoritesButton
+                ColumnLayout {
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Units.smallSpacing
+                    spacing: Kirigami.Units.smallSpacing
 
-                    Layout.fillWidth: true
+                    PlasmaComponents.ItemDelegate {
+                        id: favoritesButton
 
-                    Accessible.description: i18n("Show favorite applications")
-                    focus: root.showingFavorites && !root.searching
-                    highlighted: root.showingFavorites && !root.searching
-                    icon.name: "bookmarks"
-                    KeyNavigation.right: applicationList
-                    text: i18n("Favorites")
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2.1
 
-                    onClicked: {
-                        root.showFavorites();
-                        applicationList.forceActiveFocus(Qt.TabFocusReason);
+                        bottomPadding: Math.round(Kirigami.Units.smallSpacing / 2)
+                        leftPadding: Kirigami.Units.largeSpacing
+                        rightPadding: Kirigami.Units.largeSpacing
+                        topPadding: Math.round(Kirigami.Units.smallSpacing / 2)
+
+                        Accessible.description: i18n("Show favorite applications")
+                        focus: root.showingFavorites && !root.searching
+                        highlighted: root.showingFavorites && !root.searching
+                        icon.name: "bookmarks"
+                        KeyNavigation.right: applicationList
+                        text: i18n("Favorites")
+
+                        background: DelegateBackground {
+                            control: favoritesButton
+                            design: design
+                        }
+
+                        onClicked: {
+                            root.showFavorites();
+                            applicationList.forceActiveFocus(Qt.TabFocusReason);
+                        }
                     }
-                }
 
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 1
+                        color: design.border
+                    }
 
-                CategoryList {
-                    id: categoryList
+                    CategoryList {
+                        id: categoryList
 
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
 
-                    categoryModel: root.rootModel
-                    focus: !root.showingFavorites && !root.searching
-                    KeyNavigation.right: applicationList
+                        categoryModel: root.rootModel
+                        design: design
+                        focus: !root.showingFavorites && !root.searching
+                        KeyNavigation.right: applicationList
 
-                    onCategoryActivated: row => {
-                        root.selectCategory(row);
-                        applicationList.forceActiveFocus(Qt.TabFocusReason);
+                        onCategoryActivated: row => {
+                            root.selectCategory(row);
+                            applicationList.forceActiveFocus(Qt.TabFocusReason);
+                        }
                     }
                 }
             }
 
-            Kirigami.Separator {
-                Layout.fillHeight: true
-            }
-
-            ApplicationList {
-                id: applicationList
-
+            Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                border.color: design.border
+                border.width: 1
+                color: design.elevatedBackground
+                radius: Kirigami.Units.cornerRadius
 
-                applicationModel: root.searching ? root.searchResultsModel : root.applicationModel
-                appletRoot: root.appletRoot
-                emptyText: root.searching ? i18n("No search results") : (root.showingFavorites ? i18n("No favorite applications") : i18n("No applications in this category"))
-                favoritesModel: root.rootModel.favoritesModel
-                KeyNavigation.left: root.searching ? searchField : (root.showingFavorites ? favoritesButton : categoryList)
+                ApplicationList {
+                    id: applicationList
+
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Units.smallSpacing
+
+                    applicationModel: root.searching ? root.searchResultsModel : root.applicationModel
+                    appletRoot: root.appletRoot
+                    design: design
+                    emptyText: root.searching ? i18n("No search results") : (root.showingFavorites ? i18n("No favorite applications") : i18n("No applications in this category"))
+                    favoritesModel: root.rootModel.favoritesModel
+                    KeyNavigation.left: root.searching ? searchField : (root.showingFavorites ? favoritesButton : categoryList)
+                }
             }
-        }
-
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-
-        SystemActions {
-            Layout.fillWidth: true
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            Layout.rightMargin: Kirigami.Units.smallSpacing
-            Layout.bottomMargin: Kirigami.Units.smallSpacing
-
-            appletRoot: root.appletRoot
-            systemModel: root.systemModel
         }
     }
 

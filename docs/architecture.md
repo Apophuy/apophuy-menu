@@ -81,14 +81,23 @@ The first functional layout keeps only:
 - a search field;
 - a compact favorites region;
 - a category list;
-- one virtualized application/result list;
+- one virtualized application/result grid;
 - a small system-action strip.
 
 Places, recent documents, user avatar, profile editing, complex footer modes, nested pages, and a pin/keep-open feature are out of the initial scope. This keeps focus traversal and popup state small enough to test rigorously.
 
 ## Theme and assets
 
-Theme values will be centralized as semantic QML properties derived from Kirigami/Plasma colors. Light, dark, and follow-system behavior are later milestones. Until the icon reference gate is satisfied, only a temporary vector development icon may be used.
+Milestone 6 centralizes product colors in `DesignTokens.qml`. The popup supports
+Follow system, Light, and Dark modes through a per-instance KConfig setting.
+Follow system reads the host Kirigami Window palette through a probe outside the
+customized popup subtree; explicit modes override the popup's attached Kirigami
+Theme values and project-owned backgrounds. The complete token and system-action
+mapping is documented in `docs/design.md`.
+
+Until the icon reference gate is satisfied, the panel continues to use the
+temporary icon-theme `start-here-kde` asset. Its appearance is theme-dependent
+and is not evidence of the final launcher icon design.
 
 ## Compatibility gates
 

@@ -6,12 +6,14 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
+import org.kde.kirigami as Kirigami
 import org.kde.plasma.components as PlasmaComponents
 
 ListView {
     id: root
 
     required property var categoryModel
+    required property var design
 
     signal categoryActivated(int row)
 
@@ -20,8 +22,10 @@ ListView {
     currentIndex: 0
     keyNavigationWraps: true
     model: root.categoryModel
+    spacing: Math.round(Kirigami.Units.smallSpacing / 2)
 
     delegate: CategoryDelegate {
+        design: root.design
         onActivated: row => root.categoryActivated(row)
     }
 

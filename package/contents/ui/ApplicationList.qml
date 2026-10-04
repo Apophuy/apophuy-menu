@@ -9,25 +9,32 @@ import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.components as PlasmaComponents
 
-ListView {
+GridView {
     id: root
 
     required property var applicationModel
     required property var appletRoot
+    required property var design
     required property string emptyText
     required property var favoritesModel
 
+    readonly property real cellSpacing: Kirigami.Units.largeSpacing
+
     activeFocusOnTab: true
+    cellHeight: Kirigami.Units.gridUnit * 6.5
+    cellWidth: width / 3
     clip: true
     currentIndex: count > 0 ? 0 : -1
     keyNavigationWraps: true
     model: root.applicationModel
-    spacing: Kirigami.Units.smallSpacing
 
     delegate: ApplicationDelegate {
         applicationModel: root.applicationModel
         appletRoot: root.appletRoot
+        design: root.design
         favoritesModel: root.favoritesModel
+        height: root.cellHeight - root.cellSpacing
+        width: root.cellWidth - root.cellSpacing
     }
 
     function triggerCurrent(): void {
@@ -50,6 +57,7 @@ ListView {
 
     PlasmaComponents.Label {
         anchors.centerIn: parent
+        color: root.design.secondaryText
         visible: root.count === 0
         text: root.emptyText
     }

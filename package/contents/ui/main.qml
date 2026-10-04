@@ -50,6 +50,10 @@ PlasmoidItem {
 
     readonly property Kicker.SystemModel systemModel: Kicker.SystemModel {}
 
+    SystemPalette {
+        id: systemPalette
+    }
+
     compactRepresentation: CompactRepresentation {
         appletRoot: root
     }
@@ -58,7 +62,9 @@ PlasmoidItem {
         appletRoot: root
         rootModel: root.applicationsRootModel
         runnerModel: root.runnerModel
+        systemPalette: systemPalette
         systemModel: root.systemModel
+        themeMode: Plasmoid.configuration.themeMode
     }
 
     Component.onCompleted: {

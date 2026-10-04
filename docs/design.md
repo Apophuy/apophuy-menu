@@ -1,0 +1,90 @@
+# Visual design system
+
+## Direction
+
+Apophuy uses Plasma layout behavior and native application icons, with a small
+amount of restrained color and depth added for recognition. A compact tool row
+places session actions next to search. Below it, a spacious category column and
+a three-column application grid form the main workspace. Rounded cards and
+one-pixel borders establish hierarchy without introducing decorative panels or
+heavy shadows.
+
+The temporary panel icon remains the current icon-theme `start-here-kde` asset.
+It is not part of the final icon language. Milestone 7 remains gated on the two
+user references and design explanation required by the implementation plan.
+
+## Theme modes
+
+The Appearance page stores one integer setting per applet instance:
+
+| Value | Mode | Behavior |
+| --- | --- | --- |
+| `0` | Follow system | Derive the base, text, highlight, and status colors from the active Kirigami Window palette |
+| `1` | Light | Use the Apophuy light palette independently of the global color scheme |
+| `2` | Dark | Use the Apophuy dark palette independently of the global color scheme |
+
+Follow system is the default. `SystemPalette.qml` reads the host palette outside
+the customized popup subtree. It supplies safe dark fallbacks during the short
+startup interval in which Plasma may not yet expose every palette role.
+
+## Semantic tokens
+
+`DesignTokens.qml` is the only source of product palette values. UI components
+consume semantic names rather than literal surface or state colors:
+
+| Token | Use |
+| --- | --- |
+| `background` | Popup base |
+| `elevatedBackground` | Search, system-action, navigation, and application cards |
+| `primaryText` | Primary labels |
+| `secondaryText` | Placeholder, disabled, and empty-state text |
+| `border` | Card and idle field outlines |
+| `hover` | Pointer hover state |
+| `selected` / `selectedText` | Current category, favorite mode, and pressed state |
+| `accent` / `focus` | Keyboard focus and active field outline |
+| `success` | Positive semantic state |
+| `warning` | Caution/neutral semantic state |
+| `destructive` | Destructive semantic state |
+
+The root full representation applies these values to Kirigami's attached Theme
+properties so native Plasma labels and controls share the same foregrounds. The
+project-owned backgrounds use the tokens directly because Plasma SVG control
+backgrounds always follow the global Plasma theme and cannot represent an
+explicit per-applet Light or Dark override reliably.
+
+## System actions
+
+System actions retain Plasma's native action model and distinct glyph shapes.
+The project only supplies their visual treatment. Each action uses a compact
+pseudo-3D tile made from a vertical tonal gradient, a restrained top highlight,
+and a two-pixel lower shadow:
+
+| Action ID | Hue |
+| --- | --- |
+| `lock-screen` | ochre/gold |
+| `logout` | teal |
+| `suspend` | blue |
+| `hibernate` | violet |
+| `reboot` | amber/orange |
+| `shutdown` | red |
+| `switch-user` | cyan/teal |
+| `save-session` | green |
+
+White glyph contrast against every base action color is checked at or above
+4.5:1 by `tests/qml/tst_DesignTokens.qml`. Color is never the only cue: Plasma's
+native action glyph and localized tooltip remain available, and keyboard focus
+adds a visible accent outline around the complete button.
+
+## Interaction states
+
+- Hover uses the semantic `hover` fill.
+- Selection and press use `selected` with `selectedText`.
+- Keyboard focus uses a two-pixel `focus` outline.
+- Disabled navigation is reduced in opacity but remains legible.
+- Icon-only system actions expose localized accessible names and tooltips.
+- Favorite controls remain discoverable but use reduced idle opacity so they do
+  not compete with application icons and labels.
+
+No state animation, focus timer, or extra focus-forcing behavior was introduced
+by the visual milestone. Popup lifecycle behavior therefore remains owned by
+the existing Plasma representation contract.
