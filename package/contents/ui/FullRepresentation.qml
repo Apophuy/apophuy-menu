@@ -154,7 +154,6 @@ FocusScope {
                     anchors.margins: Kirigami.Units.smallSpacing
 
                     appletRoot: root.appletRoot
-                    compact: true
                     design: design
                     systemModel: root.systemModel
                 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Apophuy Application Launcher\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-04 19:56+0300\n"
+"POT-Creation-Date: 2026-10-04 20:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,23 +54,23 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:220
+#: package/contents/ui/FullRepresentation.qml:219
 msgid "Show favorite applications"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:225
+#: package/contents/ui/FullRepresentation.qml:224
 msgid "Favorites"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:280
+#: package/contents/ui/FullRepresentation.qml:279
 msgid "No search results"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:280
+#: package/contents/ui/FullRepresentation.qml:279
 msgid "No favorite applications"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:280
+#: package/contents/ui/FullRepresentation.qml:279
 msgid "No applications in this category"
 msgstr ""
 
@@ -80,6 +80,14 @@ msgstr ""
 
 #: package/contents/ui/SearchField.qml:25
 msgid "Search applications…"
+msgstr ""
+
+#: package/contents/ui/SystemActions.qml:43
+msgid "Session"
+msgstr ""
+
+#: package/contents/ui/SystemActions.qml:87
+msgid "Power"
 msgstr ""
 
 #: package/contents/ui/main.qml:22

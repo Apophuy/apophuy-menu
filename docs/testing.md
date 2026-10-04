@@ -243,3 +243,17 @@ The first English/Russian gettext catalog was checked on 2026-10-04:
 | English and Russian MO compilation | pass |
 | Catalog copied into the installed KPackage | pass |
 | Russian panel UI | pass; search and Favorites render as `Поиск приложений…` and `Избранное` |
+
+## Grouped system-actions regression
+
+The icon-only action strip was replaced after the 2026-10-04 panel review. The
+installed Plasma 6 grouping is preserved: session actions and power actions are
+shown behind two labeled menu buttons.
+
+| Check | Result |
+| --- | --- |
+| Labeled group buttons at 150% scale | pass; `Сеанс` and `Питание` fit without crowding |
+| Power menu contents | pass; Sleep, Hibernate, Restart, and Shut Down appear with localized labels and native glyphs |
+| Menu opening and launcher lifetime | pass; the native menu opens without dismissing the launcher |
+| Project QML errors after opening the menu | pass; none in the user-service journal |
+| Session menu contents, Escape, and successful action close | pending direct interaction checks |

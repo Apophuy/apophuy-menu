@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Apophuy Application Launcher 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-04 19:56+0300\n"
+"POT-Creation-Date: 2026-10-04 20:03+0300\n"
 "PO-Revision-Date: 2026-10-04 19:47+0300\n"
 "Last-Translator: Apophuy\n"
 "Language-Team: Russian\n"
@@ -54,23 +54,23 @@ msgstr "Светлая"
 msgid "Dark"
 msgstr "Тёмная"
 
-#: package/contents/ui/FullRepresentation.qml:220
+#: package/contents/ui/FullRepresentation.qml:219
 msgid "Show favorite applications"
 msgstr "Показать избранные приложения"
 
-#: package/contents/ui/FullRepresentation.qml:225
+#: package/contents/ui/FullRepresentation.qml:224
 msgid "Favorites"
 msgstr "Избранное"
 
-#: package/contents/ui/FullRepresentation.qml:280
+#: package/contents/ui/FullRepresentation.qml:279
 msgid "No search results"
 msgstr "Ничего не найдено"
 
-#: package/contents/ui/FullRepresentation.qml:280
+#: package/contents/ui/FullRepresentation.qml:279
 msgid "No favorite applications"
 msgstr "Нет избранных приложений"
 
-#: package/contents/ui/FullRepresentation.qml:280
+#: package/contents/ui/FullRepresentation.qml:279
 msgid "No applications in this category"
 msgstr "В этой категории нет приложений"
 
@@ -81,6 +81,14 @@ msgstr "Поиск приложений"
 #: package/contents/ui/SearchField.qml:25
 msgid "Search applications…"
 msgstr "Поиск приложений…"
+
+#: package/contents/ui/SystemActions.qml:43
+msgid "Session"
+msgstr "Сеанс"
+
+#: package/contents/ui/SystemActions.qml:87
+msgid "Power"
+msgstr "Питание"
 
 #: package/contents/ui/main.qml:22
 msgid "Open the application launcher"

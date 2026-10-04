@@ -54,10 +54,20 @@ explicit per-applet Light or Dark override reliably.
 
 ## System actions
 
-System actions retain Plasma's native action model and distinct glyph shapes.
-The project only supplies their visual treatment. Each action uses a compact
-pseudo-3D tile made from a vertical tonal gradient, a restrained top highlight,
-and a two-pixel lower shadow:
+System actions retain Plasma's native action model, localized labels, and
+distinct glyph shapes. The narrow tool-row area exposes two labeled groups
+instead of an ambiguous strip of seven icon-only buttons:
+
+- `Session` contains Lock, Log Out, Save Session, and Switch User.
+- `Power` contains Suspend, Hibernate, Restart, and Shut Down.
+
+This is the same semantic split used by the installed Plasma 6 Kickoff. Opening
+either group shows a native Plasma menu with the complete action names, reducing
+visual density and the chance of an accidental destructive action. Each group
+button keeps a compact pseudo-3D tile made from a vertical tonal gradient, a
+restrained top highlight, and a two-pixel lower shadow.
+
+The semantic action colors remain available for action-specific presentation:
 
 | Action ID | Hue |
 | --- | --- |
@@ -71,9 +81,10 @@ and a two-pixel lower shadow:
 | `save-session` | green |
 
 White glyph contrast against every base action color is checked at or above
-4.5:1 by `tests/qml/tst_DesignTokens.qml`. Color is never the only cue: Plasma's
-native action glyph and localized tooltip remain available, and keyboard focus
-adds a visible accent outline around the complete button.
+4.5:1 by `tests/qml/tst_DesignTokens.qml`. Color is never the only cue: both
+group buttons have text, every menu row has Plasma's native action glyph and
+localized label, and keyboard focus adds a visible accent outline around the
+complete button.
 
 ## Interaction states
 
@@ -81,7 +92,8 @@ adds a visible accent outline around the complete button.
 - Selection and press use `selected` with `selectedText`.
 - Keyboard focus uses a two-pixel `focus` outline.
 - Disabled navigation is reduced in opacity but remains legible.
-- Icon-only system actions expose localized accessible names and tooltips.
+- Grouped system-action buttons expose menu semantics and localized accessible
+  names; their menu rows combine native glyphs with full labels.
 - Favorite controls remain discoverable but use reduced idle opacity so they do
   not compete with application icons and labels.
 
