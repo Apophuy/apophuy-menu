@@ -8,11 +8,13 @@
         ],
         "Category": "Application Launchers",
         "Description": "A simple and predictable application launcher for Plasma 6",
+        "Description[ru]": "Простое и предсказуемое меню запуска приложений для Plasma 6",
         "EnabledByDefault": true,
         "Icon": "start-here-kde",
         "Id": "io.github.apophuy.applicationlauncher",
         "License": "GPL-2.0-or-later",
         "Name": "Apophuy Application Launcher",
+        "Name[ru]": "Меню запуска приложений Apophuy",
         "Version": "0.1.0"
     },
     "X-Plasma-API-Minimum-Version": "6.0",

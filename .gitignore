@@ -16,3 +16,6 @@ AGENTS.md
 build/
 .cache/
 *.log
+
+# Generated gettext catalogs embedded into the installable KPackage.
+package/contents/locale/

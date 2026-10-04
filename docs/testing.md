@@ -232,3 +232,14 @@ pushing the workspace below the visible bounds. Equal minimum, preferred, and
 maximum tool-row heights now make that constraint deterministic. The corrected
 layout was reloaded and visually verified in the real panel with no project QML
 errors in the journal.
+
+## Current localization smoke-test record
+
+The first English/Russian gettext catalog was checked on 2026-10-04:
+
+| Check | Result |
+| --- | --- |
+| POT extraction and PO syntax checks | pass |
+| English and Russian MO compilation | pass |
+| Catalog copied into the installed KPackage | pass |
+| Russian panel UI | pass; search and Favorites render as `Поиск приложений…` and `Избранное` |

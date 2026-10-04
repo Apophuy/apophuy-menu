@@ -10,6 +10,8 @@ project_dir=$(dirname -- "$script_dir")
 package_dir="$project_dir/package"
 plugin_id=io.github.apophuy.applicationlauncher
 
+"$script_dir/build-translations.sh"
+
 if kpackagetool6 --type Plasma/Applet --show "$plugin_id" >/dev/null 2>&1; then
     kpackagetool6 --type Plasma/Applet --upgrade "$package_dir"
 else

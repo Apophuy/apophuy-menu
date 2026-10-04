@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Apophuy
+# This file is distributed under the same license as the Apophuy Application Launcher package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Apophuy Application Launcher\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 19:56+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: package/contents/config/config.qml:12
+msgid "Appearance"
+msgstr ""
+
+#: package/contents/ui/ApplicationDelegate.qml:91
+msgid "Remove %1 from Favorites"
+msgstr ""
+
+#: package/contents/ui/ApplicationDelegate.qml:91
+msgid "Add %1 to Favorites"
+msgstr ""
+
+#: package/contents/ui/CategoryDelegate.qml:39
+msgid "Show applications in %1"
+msgstr ""
+
+#: package/contents/ui/CompactRepresentation.qml:28
+#: package/contents/ui/main.qml:21
+msgid "Apophuy Application Launcher"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:26
+msgid "Theme:"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:27
+msgid "Follow system"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:27
+msgid "Light"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:27
+msgid "Dark"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:220
+msgid "Show favorite applications"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:225
+msgid "Favorites"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:280
+msgid "No search results"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:280
+msgid "No favorite applications"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:280
+msgid "No applications in this category"
+msgstr ""
+
+#: package/contents/ui/SearchField.qml:21
+msgid "Search applications"
+msgstr ""
+
+#: package/contents/ui/SearchField.qml:25
+msgid "Search applications…"
+msgstr ""
+
+#: package/contents/ui/main.qml:22
+msgid "Open the application launcher"
+msgstr ""

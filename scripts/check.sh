@@ -32,6 +32,19 @@ qmllint=$(find_qt_tool qmllint)
 
 python3 -m json.tool "$package_dir/metadata.json" >/dev/null
 
+translation_template="$project_dir/translations/apophuy-application-launcher.pot"
+
+find "$project_dir/translations" -type f -name '*.po' -print | sort | while IFS= read -r translation_file; do
+    msgfmt --check --check-compatibility --output-file=/dev/null "$translation_file"
+    msgcmp --no-fuzzy-matching "$translation_file" "$translation_template"
+done
+
+msgcat --output-file=/dev/null "$translation_template"
+
+find "$package_dir/contents" -type f -name '*.xml' -print | sort | while IFS= read -r xml_file; do
+    xmllint --noout "$xml_file"
+done
+
 find "$package_dir/contents" -type f -name '*.qml' -print | sort | while IFS= read -r qml_file; do
     "$qmlformat" "$qml_file" >/dev/null
     "$qmllint" -I "$(qtpaths6 --query QT_INSTALL_QML)" "$qml_file"
