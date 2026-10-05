@@ -144,7 +144,7 @@ The first application-model implementation was checked on 2026-10-02:
 | `Kicker.RootModel` load through offscreen `plasmoidviewer` | pass; no project QML errors |
 | Installed model load in the real Wayland panel on screen 1 | pass; no project QML errors |
 | Category selection and application icons | pending direct interaction check |
-| Successful application launch and popup closure | pending direct interaction check |
+| Successful application launch and popup closure | pass; direct Wayland-panel check confirms the application starts and the launcher closes |
 
 The implementation calls the selected Kicker child model's `trigger()` method
 and closes the applet only when that method reports success. It does not parse or
@@ -161,7 +161,7 @@ The first Favorites implementation was checked on 2026-10-02:
 | Favorites UI load in the installed Wayland panel instance | pass; no project QML errors |
 | Isolated KActivities add → refresh → remove test | pass |
 | Add/remove through the visible star control | pending direct interaction check |
-| Launch from the visible Favorites list | pending direct interaction check |
+| Launch from the visible Favorites list | pass; direct Wayland-panel check confirms launch and popup closure |
 
 Favorites use the native per-instance `KAStatsFavoritesModel` namespace. The UI
 does not maintain a separate favorites file or impersonate another launcher's
@@ -177,7 +177,8 @@ The first search implementation was checked on 2026-10-02:
 | Search UI and `RunnerModel` load through offscreen `plasmoidviewer` | pass; no project QML errors |
 | Application-runner query for KCalc | pass; at least one result returned |
 | Search UI load in the installed Wayland panel instance | pass; no project QML errors |
-| Type query, navigate results, Enter launch, two-stage Escape | pending direct interaction check |
+| Type query, navigate results, Enter launch | pass; direct Wayland-panel check confirms result launch through `Enter` and popup closure |
+| Two-stage Escape | pending direct interaction check |
 
 The automated query test limits its runner set to `krunner_services` so unrelated
 headless runner failures cannot hang the suite. The product model intentionally
