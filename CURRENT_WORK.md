@@ -46,10 +46,14 @@ The installed development package includes the latest code changes.
 - Added `docs/release-screenshots.md`. Release screenshots must be supplied by
   the user from the actual Plasma Wayland panel; agent captures and
   `plasmawindowed` substitutes are not acceptable.
-- Added 2 logical pixels of left and right padding to both grouped system-action
-  buttons and widened the aligned left sidebar by 4 pixels. The current package
-  has been installed, and Plasma Shell has been restarted for real-panel review
-  at 100% scale.
+- The first 2 px side-padding revision for the grouped system-action buttons was
+  still too tight in the user's 100% screenshot. It was revised to 4 logical
+  pixels on each side, with the aligned left sidebar widened by 8 pixels. The
+  revised package is installed, Plasma Shell has been restarted, and no Apophuy
+  errors appeared in the restart journal.
+- The user supplied the three requested release views: dark launcher, light
+  search results, and Appearance settings. Their content is accepted; their
+  original PNG files still need to be copied into `docs/screenshots/`.
 
 ## Resume from here
 
@@ -62,12 +66,12 @@ are intentionally not automated because they affect the desktop session:
 
 The remaining release work is:
 
-1. User review of the Session and Power button padding at 100% scale.
-2. User-supplied screenshots listed in `docs/release-screenshots.md`.
+1. User review of the revised Session and Power button padding at 100% scale.
+2. Curate the three supplied screenshots listed in
+   `docs/release-screenshots.md` from their original PNG files.
 3. The two deliberate Milestone 9 session scenarios above.
-4. Curate the supplied screenshots into `docs/screenshots/`, finish the
-   changelog entry, rerun release checks, and tag the release only after every
-   gate passes.
+4. Finish the changelog entry, rerun release checks, and tag the release only
+   after every gate passes.
 
 ## Working tree note
 

@@ -27,7 +27,7 @@ FocusScope {
 
     readonly property bool searching: searchField.text.length > 0
     readonly property real headerHeight: Kirigami.Units.gridUnit * 2.7
-    readonly property real sidebarWidth: Kirigami.Units.gridUnit * 10 + 4
+    readonly property real sidebarWidth: Kirigami.Units.gridUnit * 10 + 8
 
     implicitWidth: Kirigami.Units.gridUnit * 34
     implicitHeight: Kirigami.Units.gridUnit * 34

@@ -28,14 +28,6 @@ information. Do not rescale screenshots after capture.
    - Show the icon-style selector, theme selector, and color/accent choices.
    - Use one non-default color preset so the preview demonstrates recoloring.
 
-## Optional compatibility image
-
-4. **Transparent panel and vertical placement**
-   - Use a transparent right-edge panel.
-   - Open the launcher and include the complete inward-opening popup.
-   - This can serve both as a release image and as the remaining optional icon
-     regression in `docs/testing.md`.
-
 ## Delivery
 
 Provide the original PNG files. Suggested names are:
@@ -43,7 +35,12 @@ Provide the original PNG files. Suggested names are:
 - `launcher-dark.png`
 - `launcher-search.png`
 - `appearance-settings.png`
-- `vertical-transparent-panel.png` (optional)
 
 After review, curated copies belong in `docs/screenshots/`, and the README may
 embed the strongest one or two images.
+
+## Review status
+
+The user supplied all three requested views on 2026-10-05. Their composition and
+content are accepted. The original PNG files still need to be copied into
+`docs/screenshots/` under the names above before the release is tagged.

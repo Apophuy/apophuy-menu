@@ -258,7 +258,7 @@ shown behind two labeled menu buttons.
 | Menu opening and launcher lifetime | pass; the native menu opens without dismissing the launcher |
 | Project QML errors after opening the menu | pass; none in the user-service journal |
 | Session and Power menus, Escape | pass; direct Wayland-panel check confirms localized entries appear and `Esc` dismisses either child menu without triggering an action |
-| Session and Power button horizontal padding | installed and Plasma Shell restarted without project errors; pending real-panel review at 100%. Each button reserves 2 logical pixels on both sides and the aligned sidebar is 4 pixels wider |
+| Session and Power button horizontal padding | the user-reviewed 2 px version remained too tight at 100%; revised to 4 logical pixels on both sides, with the aligned sidebar widened by 8 pixels. Installed and reloaded without Apophuy errors; pending visual review |
 | Successful system-action close | pending deliberate manual check; not automated because it affects the desktop session |
 
 ## Launcher icon regression
@@ -280,7 +280,6 @@ standing penguin; it is not a copied Tux asset.
 | Compact-representation icon margins | pass; both bundled penguin variants fill the compact representation with no project-side padding or margins |
 | Real Plasma panel at 100%, 150%, and 200% scale | pass; user screenshots confirm a crisp, complete flat-penguin silhouette at every scale |
 | Light real-panel background, flat and pseudo-3D variants | pass; user screenshots confirm both panel-icon variants retain contrast and a legible silhouette |
-| Transparent real-panel background | pending optional regression screenshot |
 
 ## Current Milestone 9 hardening record
 

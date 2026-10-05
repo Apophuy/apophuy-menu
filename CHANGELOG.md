@@ -28,6 +28,7 @@ project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Suspend/resume recovery in the real Wayland panel
 - Successful native system-action invocation and single popup closure
 - Curated release screenshots
-- Real-panel review of the 2 px Session and Power button side padding at 100%
+- Real-panel review of the revised 4 px Session and Power button side padding at
+  100%
 
 [Unreleased]: https://github.com/Apophuy/apophuy-menu/commits/main
