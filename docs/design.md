@@ -50,6 +50,7 @@ consume semantic names rather than literal surface or state colors:
 | `secondaryText` | Placeholder, disabled, and empty-state text |
 | `border` | Card and idle field outlines |
 | `hover` | Pointer hover state |
+| `hoverBorder` | Pointer-hover outline, especially for dark surfaces |
 | `selected` / `selectedText` | Current category, favorite mode, and pressed state |
 | `accent` / `focus` | Keyboard focus and active field outline |
 | `success` | Positive semantic state |
@@ -99,7 +100,8 @@ complete button.
 
 ## Interaction states
 
-- Hover uses the semantic `hover` fill.
+- Hover uses the semantic `hover` fill and a one-pixel `hoverBorder` outline,
+  so it remains distinguishable from a dark application-card surface.
 - Selection and press use `selected` with `selectedText`.
 - Keyboard focus uses a two-pixel `focus` outline.
 - Disabled navigation is reduced in opacity but remains legible.

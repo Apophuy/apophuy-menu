@@ -26,7 +26,8 @@ QtObject {
     readonly property color primaryText: root.themeMode === 0 ? root.systemText : (root.dark ? "#f3f5f7" : "#1b2027")
     readonly property color secondaryText: root.themeMode === 0 ? root.blend(root.primaryText, root.background, 0.34) : (root.dark ? "#aeb7c3" : "#5d6775")
     readonly property color border: root.themeMode === 0 ? root.blend(root.background, root.primaryText, root.dark ? 0.22 : 0.18) : (root.dark ? "#46515f" : "#cfd6df")
-    readonly property color hover: root.themeMode === 0 ? root.blend(root.background, root.accent, root.dark ? 0.18 : 0.11) : (root.dark ? "#303b49" : "#e7eef7")
+    readonly property color hover: root.themeMode === 0 ? root.blend(root.background, root.accent, root.dark ? 0.28 : 0.11) : (root.dark ? "#36485a" : "#e7eef7")
+    readonly property color hoverBorder: root.dark ? root.blend(root.border, root.primaryText, 0.32) : root.border
     readonly property color selected: root.themeMode === 0 ? root.blend(root.background, root.systemHighlight, root.dark ? 0.46 : 0.26) : (root.dark ? "#2b4a6a" : "#d7e8fb")
     readonly property color selectedText: root.themeMode === 0 ? root.primaryText : (root.dark ? "#ffffff" : "#14324d")
     readonly property color accent: root.themeMode === 0 ? root.systemHighlight : (root.dark ? "#69a9e8" : "#2563a9")

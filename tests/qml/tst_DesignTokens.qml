@@ -68,6 +68,12 @@ TestCase {
         verify(darkTokens.favorite.toString() !== darkTokens.secondaryText.toString());
     }
 
+    function test_darkHoverIsDistinctFromBackground(): void {
+        verify(contrast(darkTokens.hover, darkTokens.background) >= 1.45);
+        verify(contrast(darkTokens.hoverBorder, darkTokens.background) >= 2.0);
+        verify(darkTokens.hover.toString() !== darkTokens.selected.toString());
+    }
+
     Apophuy.DesignTokens {
         id: systemTokens
 

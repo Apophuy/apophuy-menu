@@ -218,7 +218,7 @@ The visual design implementation was checked on 2026-10-04:
 | Follow system visual review | pass; system action hues, pseudo-depth, card hierarchy, spacing, and legibility verified at 150% scale |
 | Explicit Light and Dark visual review | pass; user screenshots verified both palettes at 150% scale |
 | Selected and keyboard-focus state review | pass; category selection and search focus are distinct in panel screenshots |
-| Hover state review | pending direct interaction check |
+| Hover state review | pass; direct dark-panel screenshots confirm the lighter hover fill and one-pixel outline remain distinct from idle and selected states |
 
 The initial `SystemPalette` load exposed that Plasma may briefly report some
 palette roles as undefined while rebuilding the shell. Semantic fallbacks now
