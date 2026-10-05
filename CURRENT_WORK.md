@@ -25,6 +25,8 @@ The detailed results and exact manual scenarios are in
 
 ## Latest relevant commits
 
+- `16a57ec fix: increase system action padding`
+- `a24fd0a docs: prepare release handoff`
 - `bb086ec fix: pad grouped system actions`
 - `14a51b5 docs: record vertical panel validation`
 - `58e4b10 docs: summarize hardening status`
