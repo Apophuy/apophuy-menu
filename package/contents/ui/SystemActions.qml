@@ -19,6 +19,8 @@ RowLayout {
     required property var design
     required property var systemModel
 
+    readonly property real horizontalButtonPadding: 2
+
     spacing: Kirigami.Units.smallSpacing
 
     function isSessionAction(actionId: string): bool {
@@ -69,6 +71,8 @@ RowLayout {
         Accessible.role: Accessible.ButtonMenu
         down: sessionMenu.status === PlasmaExtras.Menu.Open || pressed
         focusPolicy: Qt.StrongFocus
+        leftPadding: root.horizontalButtonPadding
+        rightPadding: root.horizontalButtonPadding
         text: i18n("Session")
 
         background: DelegateBackground {
@@ -113,6 +117,8 @@ RowLayout {
         Accessible.role: Accessible.ButtonMenu
         down: powerMenu.status === PlasmaExtras.Menu.Open || pressed
         focusPolicy: Qt.StrongFocus
+        leftPadding: root.horizontalButtonPadding
+        rightPadding: root.horizontalButtonPadding
         text: i18n("Power")
 
         background: DelegateBackground {

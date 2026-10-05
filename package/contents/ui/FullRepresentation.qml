@@ -27,6 +27,7 @@ FocusScope {
 
     readonly property bool searching: searchField.text.length > 0
     readonly property real headerHeight: Kirigami.Units.gridUnit * 2.7
+    readonly property real sidebarWidth: Kirigami.Units.gridUnit * 10 + 4
 
     implicitWidth: Kirigami.Units.gridUnit * 34
     implicitHeight: Kirigami.Units.gridUnit * 34
@@ -141,9 +142,9 @@ FocusScope {
 
             Rectangle {
                 Layout.fillHeight: true
-                Layout.maximumWidth: Kirigami.Units.gridUnit * 10
-                Layout.minimumWidth: Kirigami.Units.gridUnit * 10
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                Layout.maximumWidth: root.sidebarWidth
+                Layout.minimumWidth: root.sidebarWidth
+                Layout.preferredWidth: root.sidebarWidth
                 border.color: design.border
                 border.width: 1
                 color: design.elevatedBackground
@@ -190,9 +191,9 @@ FocusScope {
 
             Rectangle {
                 Layout.fillHeight: true
-                Layout.maximumWidth: Kirigami.Units.gridUnit * 10
-                Layout.minimumWidth: Kirigami.Units.gridUnit * 10
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                Layout.maximumWidth: root.sidebarWidth
+                Layout.minimumWidth: root.sidebarWidth
+                Layout.preferredWidth: root.sidebarWidth
                 border.color: design.border
                 border.width: 1
                 color: design.elevatedBackground

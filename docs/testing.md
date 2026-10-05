@@ -258,6 +258,7 @@ shown behind two labeled menu buttons.
 | Menu opening and launcher lifetime | pass; the native menu opens without dismissing the launcher |
 | Project QML errors after opening the menu | pass; none in the user-service journal |
 | Session and Power menus, Escape | pass; direct Wayland-panel check confirms localized entries appear and `Esc` dismisses either child menu without triggering an action |
+| Session and Power button horizontal padding | pending real-panel review at 100%; each button now reserves 2 logical pixels on both sides and the aligned sidebar is 4 pixels wider |
 | Successful system-action close | pending deliberate manual check; not automated because it affects the desktop session |
 
 ## Launcher icon regression
