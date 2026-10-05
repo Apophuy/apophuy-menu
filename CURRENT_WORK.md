@@ -18,7 +18,8 @@ Updated: 2026-10-05
 - Milestone 9 checks completed so far: actual KDE Wayland panel, both 4K
   displays, top and right-edge panels, keyboard application launch from
   Favorites and search, two-stage Escape, child-menu Escape, repeated
-  plasmashell restarts, and dark-theme hover visibility.
+  plasmashell restarts, opening-state reset to Favorites, and dark-theme hover
+  visibility.
 
 The detailed results and exact manual scenarios are in
 [`docs/testing.md`](docs/testing.md).
@@ -60,7 +61,7 @@ The installed development package includes the latest code changes.
   launcher and light search images are selected for the README.
 - Opening the launcher now always resets its content to Favorites and clears the
   search query. The revised package is installed and Plasma Shell has been
-  restarted; the real-panel reopening check is pending.
+  restarted; the user verified the real-panel reopening behavior.
 
 ## Resume from here
 
@@ -73,12 +74,10 @@ are intentionally not automated because they affect the desktop session:
 
 The remaining release work is:
 
-1. Verify from the real panel that closing and reopening after selecting a
-   category or entering a query returns to Favorites with an empty search field.
-2. Curate the three supplied screenshots listed in
+1. Curate the three supplied screenshots listed in
    `docs/release-screenshots.md` from their original PNG files.
-3. The two deliberate Milestone 9 session scenarios above.
-4. Finish the changelog entry, rerun release checks, and tag the release only
+2. The two deliberate Milestone 9 session scenarios above.
+3. Finish the changelog entry, rerun release checks, and tag the release only
    after every gate passes.
 
 ## Working tree note

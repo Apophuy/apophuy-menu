@@ -289,7 +289,7 @@ standing penguin; it is not a copied Tux asset.
 | Multi-monitor placement | pass; the launcher was opened from panels on both 4K displays at 150% scale |
 | HiDPI | pass; user verified the compact icon at 100%, 150%, and 200% scale |
 | Keyboard launch and dismissal | pass; direct panel checks confirm Favorites launch, search-result `Enter`, and two-stage `Esc` |
-| Opening-state reset | pending real-panel check: select a category or enter a query, close the launcher, reopen it, and confirm Favorites is selected with an empty query |
+| Opening-state reset | pass; user confirmed that after selecting a category or entering a query, closing and reopening returns to Favorites with an empty search field |
 | Child-menu dismissal | pass; `Esc` dismisses Session and Power menus without invoking an action |
 | Plasma Shell restart | pass; package upgrades and explicit user-shell restarts repeatedly reloaded the launcher without project journal errors |
 | Horizontal panel positions | pass; real-panel checks covered top panels on both displays |
