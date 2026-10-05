@@ -1,5 +1,7 @@
 # Apophuy Application Launcher
 
+[Русская версия](README_RU.md)
+
 Apophuy is a compact, predictable application launcher for KDE Plasma 6. It
 uses Plasma's own application, favorites, search, and session models while
 keeping the interface deliberately small.
