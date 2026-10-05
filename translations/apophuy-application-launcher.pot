@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Apophuy
-# This file is distributed under the same license as the Apophuy Application Launcher package.
+# This file is distributed under the same license as the Apophuy Menu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Apophuy Application Launcher\n"
+"Project-Id-Version: Apophuy Menu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 09:23+0300\n"
+"POT-Creation-Date: 2026-10-05 20:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: package/contents/ui/CompactRepresentation.qml:31
 #: package/contents/ui/main.qml:21
-msgid "Apophuy Application Launcher"
+msgid "Apophuy Menu"
 msgstr ""
 
 #: package/contents/ui/ConfigAppearance.qml:31
@@ -106,23 +106,23 @@ msgstr ""
 msgid "Choose penguin color"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:219
+#: package/contents/ui/FullRepresentation.qml:220
 msgid "Show favorite applications"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:224
+#: package/contents/ui/FullRepresentation.qml:225
 msgid "Favorites"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:279
+#: package/contents/ui/FullRepresentation.qml:280
 msgid "No search results"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:279
+#: package/contents/ui/FullRepresentation.qml:280
 msgid "No favorite applications"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:279
+#: package/contents/ui/FullRepresentation.qml:280
 msgid "No applications in this category"
 msgstr ""
 
@@ -134,14 +134,14 @@ msgstr ""
 msgid "Search applications…"
 msgstr ""
 
-#: package/contents/ui/SystemActions.qml:72
+#: package/contents/ui/SystemActions.qml:76
 msgid "Session"
 msgstr ""
 
-#: package/contents/ui/SystemActions.qml:116
+#: package/contents/ui/SystemActions.qml:122
 msgid "Power"
 msgstr ""
 
 #: package/contents/ui/main.qml:22
-msgid "Open the application launcher"
+msgid "Open the Apophuy menu"
 msgstr ""

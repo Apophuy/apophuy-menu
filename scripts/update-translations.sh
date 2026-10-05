@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # SPDX-FileCopyrightText: 2026 Apophuy
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 set -eu
 
@@ -21,7 +21,7 @@ mkdir -p "$translations_dir"
         --keyword=i18nc:1c,2 \
         --keyword=i18np:1,2 \
         --keyword=i18ncp:1c,2,3 \
-        --package-name='Apophuy Application Launcher' \
+        --package-name='Apophuy Menu' \
         --copyright-holder='Apophuy' \
         --output="$template"
 
