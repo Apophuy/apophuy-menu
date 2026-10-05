@@ -280,3 +280,18 @@ standing penguin; it is not a copied Tux asset.
 | Real Plasma panel at 100%, 150%, and 200% scale | pass; user screenshots confirm a crisp, complete flat-penguin silhouette at every scale |
 | Light real-panel background, flat and pseudo-3D variants | pass; user screenshots confirm both panel-icon variants retain contrast and a legible silhouette |
 | Transparent real-panel background | pending optional regression screenshot |
+
+## Current Milestone 9 hardening record
+
+| Check | Result |
+| --- | --- |
+| Wayland panel integration | pass; the real-panel records above use the target KDE Wayland session |
+| Multi-monitor placement | pass; the launcher was opened from panels on both 4K displays at 150% scale |
+| HiDPI | pass; user verified the compact icon at 100%, 150%, and 200% scale |
+| Keyboard launch and dismissal | pass; direct panel checks confirm Favorites launch, search-result `Enter`, and two-stage `Esc` |
+| Child-menu dismissal | pass; `Esc` dismisses Session and Power menus without invoking an action |
+| Plasma Shell restart | pass; package upgrades and explicit user-shell restarts repeatedly reloaded the launcher without project journal errors |
+| Horizontal panel positions | pass; real-panel checks covered top panels on both displays |
+| Vertical panel positions | pending real-panel check |
+| Suspend/resume | pending deliberate manual check |
+| Successful system-action close | pending deliberate manual check; system actions are not automated |
