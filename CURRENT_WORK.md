@@ -25,6 +25,7 @@ The detailed results and exact manual scenarios are in
 
 ## Latest relevant commits
 
+- `bb086ec fix: pad grouped system actions`
 - `14a51b5 docs: record vertical panel validation`
 - `58e4b10 docs: summarize hardening status`
 - `d76d946 fix: strengthen dark hover state`
@@ -32,8 +33,23 @@ The detailed results and exact manual scenarios are in
 - `97fb9bd feat: add flat penguin icon`
 - `1ec792f feat: add penguin launcher icon`
 
-The installed development package includes the latest code changes; the
-subsequent commits only record validation results.
+The installed development package includes the latest code changes.
+
+## Milestone 10 progress
+
+- Added the project README with current-user installation, update, uninstall,
+  verification, packaging, and compatibility guidance.
+- Added the GPL-2.0 license text and an initial changelog for version 0.1.0.
+- Added a repeatable release script that builds translations, runs the static
+  checks, creates a versioned `.plasmoid` archive, verifies ZIP integrity, and
+  writes its SHA-256 checksum.
+- Added `docs/release-screenshots.md`. Release screenshots must be supplied by
+  the user from the actual Plasma Wayland panel; agent captures and
+  `plasmawindowed` substitutes are not acceptable.
+- Added 2 logical pixels of left and right padding to both grouped system-action
+  buttons and widened the aligned left sidebar by 4 pixels. The current package
+  has been installed, and Plasma Shell has been restarted for real-panel review
+  at 100% scale.
 
 ## Resume from here
 
@@ -44,14 +60,18 @@ are intentionally not automated because they affect the desktop session:
 2. With the user's consent, invoke one native system action and verify that the
    launcher closes exactly once and that no stale popup remains.
 
-An optional regression screenshot can also cover a transparent real-panel
-background. Once the user-facing Milestone 9 scenarios are complete, continue
-with Milestone 10: README, curated screenshots, installation/uninstallation
-handoff, changelog, license review, release package, and a clean tracked tree.
+The remaining release work is:
+
+1. User review of the Session and Power button padding at 100% scale.
+2. User-supplied screenshots listed in `docs/release-screenshots.md`.
+3. The two deliberate Milestone 9 session scenarios above.
+4. Curate the supplied screenshots into `docs/screenshots/`, finish the
+   changelog entry, rerun release checks, and tag the release only after every
+   gate passes.
 
 ## Working tree note
 
-There are no uncommitted tracked changes at this checkpoint. The untracked
-`assets/` concepts and `plasma6_launcher_implementation_plan.md` are
-user-owned working material and must remain excluded from commits unless the
-user explicitly asks otherwise.
+The user-owned `assets/` concepts and
+`plasma6_launcher_implementation_plan.md` are ignored locally and must remain
+excluded from commits unless the user explicitly asks otherwise. Generated
+translation catalogs and `dist/` release archives are also ignored.

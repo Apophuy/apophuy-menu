@@ -19,3 +19,11 @@ build/
 
 # Generated gettext catalogs embedded into the installable KPackage.
 package/contents/locale/
+
+# User-owned design references and the original working plan are local inputs,
+# not release contents.
+/assets/
+/plasma6_launcher_implementation_plan.md
+
+# Reproducible release archives.
+/dist/
