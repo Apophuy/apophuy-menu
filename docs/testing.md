@@ -195,7 +195,7 @@ The first system-actions implementation was checked on 2026-10-02:
 | System-actions UI load through offscreen `plasmoidviewer` | pass; no project QML errors |
 | Available-actions model and disabled-role test | pass |
 | Installed package matches the checked working-tree package | pass |
-| Invoke Lock, Logout, Suspend, Hibernate, Restart, and Shutdown from the visible controls | pending deliberate manual checks |
+| Invoke native system actions from the visible controls | pass for Lock: the user invoked it from the Session menu, then verified after unlocking that the launcher was closed and left no popup artifact. Other disruptive actions were intentionally not invoked |
 
 The UI is populated by Plasma's native `SystemModel`, so actions unavailable on
 the current machine are omitted and disabled entries cannot be invoked. Automated
@@ -294,5 +294,5 @@ standing penguin; it is not a copied Tux asset.
 | Plasma Shell restart | pass; package upgrades and explicit user-shell restarts repeatedly reloaded the launcher without project journal errors |
 | Horizontal panel positions | pass; real-panel checks covered top panels on both displays |
 | Vertical panel positions | pass; user screenshot confirms the right-edge panel opens a complete, uncut popup inward from the screen edge |
-| Suspend/resume | pending deliberate manual check |
-| Successful system-action close | pending deliberate manual check; system actions are not automated |
+| Suspend/resume | pass; user suspended and resumed the session, then confirmed the launcher opened and worked normally |
+| Successful system-action close | pass; user invoked Lock from the Session menu, then verified after unlocking that the launcher was closed once with no stale popup |

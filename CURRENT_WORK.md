@@ -18,8 +18,8 @@ Updated: 2026-10-05
 - Milestone 9 checks completed so far: actual KDE Wayland panel, both 4K
   displays, top and right-edge panels, keyboard application launch from
   Favorites and search, two-stage Escape, child-menu Escape, repeated
-  plasmashell restarts, opening-state reset to Favorites, and dark-theme hover
-  visibility.
+  plasmashell restarts, opening-state reset to Favorites, dark-theme hover
+  visibility, successful Lock action popup closure, and suspend/resume.
 
 The detailed results and exact manual scenarios are in
 [`docs/testing.md`](docs/testing.md).
@@ -65,18 +65,11 @@ The installed development package includes the latest code changes.
 
 ## Resume from here
 
-Milestone 9 is the active milestone. The remaining deliberate manual scenarios
-are intentionally not automated because they affect the desktop session:
-
-1. Suspend and resume, then open and use the launcher again.
-2. With the user's consent, invoke one native system action and verify that the
-   launcher closes exactly once and that no stale popup remains.
-
-The remaining release work is:
+Milestone 9 is complete. Milestone 10 release handoff remains:
 
 1. Curate the three supplied screenshots listed in
    `docs/release-screenshots.md` from their original PNG files.
-2. The two deliberate Milestone 9 session scenarios above.
+2. Embed the selected dark-launcher and light-search screenshots in the README.
 3. Finish the changelog entry, rerun release checks, and tag the release only
    after every gate passes.
 

@@ -25,8 +25,6 @@ project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Verification pending
 
-- Suspend/resume recovery in the real Wayland panel
-- Successful native system-action invocation and single popup closure
 - Curated release screenshots
 
 [Unreleased]: https://github.com/Apophuy/apophuy-menu/commits/main
