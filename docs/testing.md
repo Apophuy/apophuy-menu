@@ -104,7 +104,7 @@ terminated after the observation interval. Offscreen portal, window-shadow, and
 desktop-containment messages are host-environment diagnostics, not messages from
 the Apophuy package.
 
-Apophuy Application Launcher must pass the “activate another plasmoid” case with
+Apophuy Menu must pass the “activate another plasmoid” case with
 any available peer applet. It does not depend on Simple Application Launcher for
 runtime or testing.
 

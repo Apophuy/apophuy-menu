@@ -1,8 +1,8 @@
-# Меню запуска приложений Apophuy
+# Меню Apophuy
 
 [English version](README.md)
 
-Apophuy — компактное и предсказуемое меню запуска приложений для KDE Plasma 6.
+Меню Apophuy — компактное и предсказуемое меню запуска приложений для KDE Plasma 6.
 Оно использует штатные модели Plasma для приложений, избранного, поиска и
 сессионных действий, сохраняя интерфейс намеренно простым.
 
@@ -41,11 +41,11 @@ KDE Frameworks 6.13 и Wayland.
 Либо установите релизный архив:
 
 ```sh
-kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.0.plasmoid
+kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.1.plasmoid
 ```
 
 После установки войдите в режим редактирования панели Plasma, выберите
-**Добавить виджеты** и добавьте **Меню запуска приложений Apophuy**. Для
+**Добавить виджеты** и добавьте **Меню Apophuy**. Для
 обновления установленной версии замените `--install` на `--upgrade`.
 
 ## Удаление
@@ -101,4 +101,4 @@ Kicker из Plasma: в установленной в Debian 13 Plasma нет э�
 ## Лицензия
 
 Copyright © 2026 Apophuy. Проект распространяется по GNU General Public
-License, версии 2 или любой более поздней. См. [`LICENSE`](LICENSE).
+License, версии 3 или любой более поздней. См. [`LICENSE`](LICENSE).

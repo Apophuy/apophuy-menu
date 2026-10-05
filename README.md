@@ -1,8 +1,8 @@
-# Apophuy Application Launcher
+# Apophuy Menu
 
 [Русская версия](README_RU.md)
 
-Apophuy is a compact, predictable application launcher for KDE Plasma 6. It
+Apophuy Menu is a compact, predictable application launcher for KDE Plasma 6. It
 uses Plasma's own application, favorites, search, and session models while
 keeping the interface deliberately small.
 
@@ -11,9 +11,9 @@ Frameworks 6.13, and Wayland.
 
 ## Screenshots
 
-![Apophuy Application Launcher in its dark appearance](docs/screenshots/launcher-dark.png)
+![Apophuy Menu in its dark appearance](docs/screenshots/launcher-dark.png)
 
-![Apophuy Application Launcher search in its light appearance](docs/screenshots/launcher-search.png)
+![Apophuy Menu search in its light appearance](docs/screenshots/launcher-search.png)
 
 ## Features
 
@@ -41,11 +41,11 @@ The development checkout can be installed for the current user without root:
 Alternatively, install a release archive:
 
 ```sh
-kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.0.plasmoid
+kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.1.plasmoid
 ```
 
 After installation, enter Plasma panel edit mode, choose **Add Widgets**, and
-add **Apophuy Application Launcher**. Existing installations can be updated by
+add **Apophuy Menu**. Existing installations can be updated by
 replacing `--install` with `--upgrade`.
 
 ## Uninstall
@@ -100,4 +100,4 @@ new Plasma release.
 ## License
 
 Copyright © 2026 Apophuy. Licensed under the GNU General Public License,
-version 2 or any later version. See [`LICENSE`](LICENSE).
+version 3 or any later version. See [`LICENSE`](LICENSE).

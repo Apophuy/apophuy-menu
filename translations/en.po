@@ -1,12 +1,12 @@
-# English translation for Apophuy Application Launcher.
+# English translation for Apophuy Menu.
 # Copyright (C) 2026 Apophuy
-# This file is distributed under the same license as the Apophuy Application Launcher package.
+# This file is distributed under the same license as the Apophuy Menu package.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Apophuy Application Launcher 0.1.0\n"
+"Project-Id-Version: Apophuy Menu 0.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 09:23+0300\n"
+"POT-Creation-Date: 2026-10-05 20:36+0300\n"
 "PO-Revision-Date: 2026-10-04 19:47+0300\n"
 "Last-Translator: Apophuy\n"
 "Language-Team: English\n"
@@ -34,8 +34,8 @@ msgstr "Show applications in %1"
 
 #: package/contents/ui/CompactRepresentation.qml:31
 #: package/contents/ui/main.qml:21
-msgid "Apophuy Application Launcher"
-msgstr "Apophuy Application Launcher"
+msgid "Apophuy Menu"
+msgstr "Apophuy Menu"
 
 #: package/contents/ui/ConfigAppearance.qml:31
 msgid "Theme:"
@@ -105,23 +105,23 @@ msgstr "Choose custom color…"
 msgid "Choose penguin color"
 msgstr "Choose penguin color"
 
-#: package/contents/ui/FullRepresentation.qml:219
+#: package/contents/ui/FullRepresentation.qml:220
 msgid "Show favorite applications"
 msgstr "Show favorite applications"
 
-#: package/contents/ui/FullRepresentation.qml:224
+#: package/contents/ui/FullRepresentation.qml:225
 msgid "Favorites"
 msgstr "Favorites"
 
-#: package/contents/ui/FullRepresentation.qml:279
+#: package/contents/ui/FullRepresentation.qml:280
 msgid "No search results"
 msgstr "No search results"
 
-#: package/contents/ui/FullRepresentation.qml:279
+#: package/contents/ui/FullRepresentation.qml:280
 msgid "No favorite applications"
 msgstr "No favorite applications"
 
-#: package/contents/ui/FullRepresentation.qml:279
+#: package/contents/ui/FullRepresentation.qml:280
 msgid "No applications in this category"
 msgstr "No applications in this category"
 
@@ -133,14 +133,14 @@ msgstr "Search applications"
 msgid "Search applications…"
 msgstr "Search applications…"
 
-#: package/contents/ui/SystemActions.qml:72
+#: package/contents/ui/SystemActions.qml:76
 msgid "Session"
 msgstr "Session"
 
-#: package/contents/ui/SystemActions.qml:116
+#: package/contents/ui/SystemActions.qml:122
 msgid "Power"
 msgstr "Power"
 
 #: package/contents/ui/main.qml:22
-msgid "Open the application launcher"
-msgstr "Open the application launcher"
+msgid "Open the Apophuy menu"
+msgstr "Open the Apophuy menu"
