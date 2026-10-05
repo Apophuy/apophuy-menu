@@ -178,7 +178,7 @@ The first search implementation was checked on 2026-10-02:
 | Application-runner query for KCalc | pass; at least one result returned |
 | Search UI load in the installed Wayland panel instance | pass; no project QML errors |
 | Type query, navigate results, Enter launch | pass; direct Wayland-panel check confirms result launch through `Enter` and popup closure |
-| Two-stage Escape | pending direct interaction check |
+| Two-stage Escape | pass; direct Wayland-panel check confirms the first press clears the query and the second closes the launcher |
 
 The automated query test limits its runner set to `krunner_services` so unrelated
 headless runner failures cannot hang the suite. The product model intentionally
