@@ -59,6 +59,15 @@ TestCase {
         }
     }
 
+    function test_favoriteTokenIsVisibleAndDistinct(): void {
+        compare(lightTokens.favorite.toString(), "#a86d00");
+        compare(darkTokens.favorite.toString(), "#f6c744");
+        verify(contrast(lightTokens.favorite, lightTokens.background) >= 3.0);
+        verify(contrast(darkTokens.favorite, darkTokens.background) >= 3.0);
+        verify(lightTokens.favorite.toString() !== lightTokens.secondaryText.toString());
+        verify(darkTokens.favorite.toString() !== darkTokens.secondaryText.toString());
+    }
+
     Apophuy.DesignTokens {
         id: systemTokens
 

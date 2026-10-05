@@ -160,7 +160,7 @@ The first Favorites implementation was checked on 2026-10-02:
 | Favorites UI load through offscreen `plasmoidviewer` | pass; no project QML errors |
 | Favorites UI load in the installed Wayland panel instance | pass; no project QML errors |
 | Isolated KActivities add → refresh → remove test | pass |
-| Add/remove through the visible star control | pending direct interaction check |
+| Add/remove through the visible star control | pass; direct Wayland-panel check confirms immediate list updates and distinct outline/filled-gold star states |
 | Launch from the visible Favorites list | pass; direct Wayland-panel check confirms launch and popup closure |
 
 Favorites use the native per-instance `KAStatsFavoritesModel` namespace. The UI

@@ -54,6 +54,7 @@ consume semantic names rather than literal surface or state colors:
 | `accent` / `focus` | Keyboard focus and active field outline |
 | `success` | Positive semantic state |
 | `warning` | Caution/neutral semantic state |
+| `favorite` | Filled favorite control |
 | `destructive` | Destructive semantic state |
 
 The root full representation applies these values to Kirigami's attached Theme
@@ -104,8 +105,13 @@ complete button.
 - Disabled navigation is reduced in opacity but remains legible.
 - Grouped system-action buttons expose menu semantics and localized accessible
   names; their menu rows combine native glyphs with full labels.
-- Favorite controls remain discoverable but use reduced idle opacity so they do
-  not compete with application icons and labels.
+- Every launchable application tile always shows a star control at its upper
+  right: an outline means “add to Favorites,” while a filled star means
+  “remove from Favorites.” The filled star uses the semantic `favorite` gold
+  token; the standard Plasma `favorite` and
+  `favorite-favorited` glyphs, a localized tooltip, and the accessible name
+  make the state and action explicit without competing with the application
+  icon or label.
 
 No state animation, focus timer, or extra focus-forcing behavior was introduced
 by the visual milestone. Popup lifecycle behavior therefore remains owned by

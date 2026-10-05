@@ -32,6 +32,7 @@ QtObject {
     readonly property color accent: root.themeMode === 0 ? root.systemHighlight : (root.dark ? "#69a9e8" : "#2563a9")
     readonly property color success: root.themeMode === 0 ? root.systemPositive : (root.dark ? "#59bd7b" : "#2f7d4a")
     readonly property color warning: root.themeMode === 0 ? root.systemNeutral : (root.dark ? "#f0a54a" : "#9a5700")
+    readonly property color favorite: root.dark ? "#f6c744" : "#a86d00"
     readonly property color destructive: root.themeMode === 0 ? root.systemNegative : (root.dark ? "#ec6a72" : "#b5333c")
     readonly property color focus: root.accent
 

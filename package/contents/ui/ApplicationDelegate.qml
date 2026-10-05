@@ -91,9 +91,12 @@ PlasmaComponents.ItemDelegate {
         Accessible.name: root.isFavorite ? i18n("Remove %1 from Favorites", root.text) : i18n("Add %1 to Favorites", root.text)
         display: PlasmaComponents.AbstractButton.IconOnly
         enabled: root.favoritesModel && root.favoritesModel.enabled
-        icon.name: root.isFavorite ? "bookmark-remove" : "bookmark-new"
-        opacity: favoriteButton.hovered || favoriteButton.activeFocus ? 1 : 0.62
-        visible: root.favoriteId !== "" && (root.isFavorite || root.hovered || root.activeFocus)
+        icon.name: root.isFavorite ? "favorite-favorited" : "favorite"
+        icon.color: root.isFavorite ? root.design.favorite : root.design.secondaryText
+        icon.height: Kirigami.Units.iconSizes.smallMedium
+        icon.width: Kirigami.Units.iconSizes.smallMedium
+        opacity: favoriteButton.hovered || favoriteButton.activeFocus ? 1 : 0.78
+        visible: root.favoriteId !== ""
 
         background: DelegateBackground {
             control: favoriteButton
