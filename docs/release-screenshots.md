@@ -36,11 +36,22 @@ Provide the original PNG files. Suggested names are:
 - `launcher-search.png`
 - `appearance-settings.png`
 
-After review, curated copies belong in `docs/screenshots/`, and the README may
-embed the strongest one or two images.
+## README selection
+
+The README uses two product views:
+
+1. `launcher-dark.png` is the primary image. Use the final dark 100% screenshot
+   with the 4 px Session and Power button padding.
+2. `launcher-search.png` is the supporting image. It demonstrates the distinct
+   Light appearance and active search results.
+
+`appearance-settings.png` documents customization and remains in
+`docs/screenshots/`, but is not embedded in the README.
 
 ## Review status
 
 The user supplied all three requested views on 2026-10-05. Their composition and
 content are accepted. The original PNG files still need to be copied into
-`docs/screenshots/` under the names above before the release is tagged.
+`docs/screenshots/` under the names above before the release is tagged. Once
+they are present, embed `launcher-dark.png` and `launcher-search.png` directly
+below the README introduction.

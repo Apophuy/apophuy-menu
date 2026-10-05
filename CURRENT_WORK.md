@@ -25,6 +25,7 @@ The detailed results and exact manual scenarios are in
 
 ## Latest relevant commits
 
+- `f00455a fix: reopen launcher on favorites`
 - `16a57ec fix: increase system action padding`
 - `a24fd0a docs: prepare release handoff`
 - `bb086ec fix: pad grouped system actions`
@@ -55,7 +56,11 @@ The installed development package includes the latest code changes.
   errors appeared in the restart journal.
 - The user supplied the three requested release views: dark launcher, light
   search results, and Appearance settings. Their content is accepted; their
-  original PNG files still need to be copied into `docs/screenshots/`.
+  original PNG files still need to be copied into `docs/screenshots/`. The dark
+  launcher and light search images are selected for the README.
+- Opening the launcher now always resets its content to Favorites and clears the
+  search query. The revised package is installed and Plasma Shell has been
+  restarted; the real-panel reopening check is pending.
 
 ## Resume from here
 
@@ -68,7 +73,8 @@ are intentionally not automated because they affect the desktop session:
 
 The remaining release work is:
 
-1. User review of the revised Session and Power button padding at 100% scale.
+1. Verify from the real panel that closing and reopening after selecting a
+   category or entering a query returns to Favorites with an empty search field.
 2. Curate the three supplied screenshots listed in
    `docs/release-screenshots.md` from their original PNG files.
 3. The two deliberate Milestone 9 session scenarios above.
