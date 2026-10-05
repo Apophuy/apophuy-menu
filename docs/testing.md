@@ -257,7 +257,8 @@ shown behind two labeled menu buttons.
 | Power menu contents | pass; Sleep, Hibernate, Restart, and Shut Down appear with localized labels and native glyphs |
 | Menu opening and launcher lifetime | pass; the native menu opens without dismissing the launcher |
 | Project QML errors after opening the menu | pass; none in the user-service journal |
-| Session menu contents, Escape, and successful action close | pending direct interaction checks |
+| Session and Power menus, Escape | pass; direct Wayland-panel check confirms localized entries appear and `Esc` dismisses either child menu without triggering an action |
+| Successful system-action close | pending deliberate manual check; not automated because it affects the desktop session |
 
 ## Launcher icon regression
 
