@@ -292,6 +292,6 @@ standing penguin; it is not a copied Tux asset.
 | Child-menu dismissal | pass; `Esc` dismisses Session and Power menus without invoking an action |
 | Plasma Shell restart | pass; package upgrades and explicit user-shell restarts repeatedly reloaded the launcher without project journal errors |
 | Horizontal panel positions | pass; real-panel checks covered top panels on both displays |
-| Vertical panel positions | pending real-panel check |
+| Vertical panel positions | pass; user screenshot confirms the right-edge panel opens a complete, uncut popup inward from the screen edge |
 | Suspend/resume | pending deliberate manual check |
 | Successful system-action close | pending deliberate manual check; system actions are not automated |
