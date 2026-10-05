@@ -15,7 +15,7 @@ Standalone `qmllint` cannot resolve Plasma's context-provided plasmoid module in
 
 | Initial state | Event | Expected state | Required observation |
 | --- | --- | --- | --- |
-| closed | click compact representation | open | one popup, full representation focused |
+| closed | click compact representation | open | one popup, Favorites selected, empty query, search field focused |
 | open | click the same compact representation | closed | no stale visible popup; `expanded == false` |
 | open | click desktop/another normal window | closed | closes without a second launcher click |
 | open | activate another plasmoid | closed | only the newly activated popup remains |
@@ -258,7 +258,7 @@ shown behind two labeled menu buttons.
 | Menu opening and launcher lifetime | pass; the native menu opens without dismissing the launcher |
 | Project QML errors after opening the menu | pass; none in the user-service journal |
 | Session and Power menus, Escape | pass; direct Wayland-panel check confirms localized entries appear and `Esc` dismisses either child menu without triggering an action |
-| Session and Power button horizontal padding | the user-reviewed 2 px version remained too tight at 100%; revised to 4 logical pixels on both sides, with the aligned sidebar widened by 8 pixels. Installed and reloaded without Apophuy errors; pending visual review |
+| Session and Power button horizontal padding | the user-reviewed 2 px version remained too tight at 100%; revised to 4 logical pixels on both sides, with the aligned sidebar widened by 8 pixels. Installed and reloaded without Apophuy errors; user approved the 4 px result at 100% |
 | Successful system-action close | pending deliberate manual check; not automated because it affects the desktop session |
 
 ## Launcher icon regression
@@ -289,6 +289,7 @@ standing penguin; it is not a copied Tux asset.
 | Multi-monitor placement | pass; the launcher was opened from panels on both 4K displays at 150% scale |
 | HiDPI | pass; user verified the compact icon at 100%, 150%, and 200% scale |
 | Keyboard launch and dismissal | pass; direct panel checks confirm Favorites launch, search-result `Enter`, and two-stage `Esc` |
+| Opening-state reset | pending real-panel check: select a category or enter a query, close the launcher, reopen it, and confirm Favorites is selected with an empty query |
 | Child-menu dismissal | pass; `Esc` dismisses Session and Power menus without invoking an action |
 | Plasma Shell restart | pass; package upgrades and explicit user-shell restarts repeatedly reloaded the launcher without project journal errors |
 | Horizontal panel positions | pass; real-panel checks covered top panels on both displays |

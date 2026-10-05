@@ -320,6 +320,7 @@ FocusScope {
 
         function onExpandedChanged(): void {
             if (root.appletRoot.expanded) {
+                root.showFavorites();
                 root.focusSearchField();
             } else {
                 searchField.clear();
@@ -330,11 +331,7 @@ FocusScope {
 
     Component.onCompleted: {
         root.rootModel.refresh();
-        if (root.rootModel.favoritesModel.count > 0) {
-            root.showFavorites();
-        } else {
-            root.selectCategory(0);
-        }
+        root.showFavorites();
         if (root.appletRoot.expanded) {
             root.focusSearchField();
         }
