@@ -275,4 +275,5 @@ standing penguin; it is not a copied Tux asset.
 | Installed Plasma 6 panel, dark theme, Ocean preset | pass; user screenshot confirms only the intended accent area is recolored |
 | Flat penguin, dark panel, Ocean preset | pass; user screenshot confirms every opaque green pixel is recolored while the transparent face remains panel background |
 | Compact-representation icon margins | pass; both bundled penguin variants fill the compact representation with no project-side padding or margins |
-| Light and transparent real-panel backgrounds; 150% and 200% scale | pending direct panel screenshots |
+| Real Plasma panel at 100%, 150%, and 200% scale | pass; user screenshots confirm a crisp, complete flat-penguin silhouette at every scale |
+| Light and transparent real-panel backgrounds | pending direct panel screenshots |
