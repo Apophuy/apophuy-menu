@@ -9,5 +9,17 @@
             <label>Launcher color theme: 0 = system, 1 = light, 2 = dark.</label>
             <default>0</default>
         </entry>
+        <entry name="launcherIcon" type="Int">
+            <label>Launcher panel icon: 0 = Apophuy Penguin, 1 = system launcher icon.</label>
+            <default>0</default>
+        </entry>
+        <entry name="iconColorPreset" type="Int">
+            <label>Penguin color: 0 = original, 1 = ocean, 2 = amber, 3 = violet, 4 = custom.</label>
+            <default>0</default>
+        </entry>
+        <entry name="iconCustomColor" type="Color">
+            <label>Custom base color for the Apophuy Penguin.</label>
+            <default>#39d641</default>
+        </entry>
     </group>
 </kcfg>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Apophuy Application Launcher\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-04 20:03+0300\n"
+"POT-Creation-Date: 2026-10-05 09:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,25 +33,73 @@ msgstr ""
 msgid "Show applications in %1"
 msgstr ""
 
-#: package/contents/ui/CompactRepresentation.qml:28
+#: package/contents/ui/CompactRepresentation.qml:31
 #: package/contents/ui/main.qml:21
 msgid "Apophuy Application Launcher"
 msgstr ""
 
-#: package/contents/ui/ConfigAppearance.qml:26
+#: package/contents/ui/ConfigAppearance.qml:31
 msgid "Theme:"
 msgstr ""
 
-#: package/contents/ui/ConfigAppearance.qml:27
+#: package/contents/ui/ConfigAppearance.qml:32
 msgid "Follow system"
 msgstr ""
 
-#: package/contents/ui/ConfigAppearance.qml:27
+#: package/contents/ui/ConfigAppearance.qml:32
 msgid "Light"
 msgstr ""
 
-#: package/contents/ui/ConfigAppearance.qml:27
+#: package/contents/ui/ConfigAppearance.qml:32
 msgid "Dark"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:38
+msgid "Panel icon:"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:39
+msgid "Apophuy Penguin"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:39
+msgid "System launcher icon"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:45
+msgid "Penguin color:"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:48
+msgid "Original palette"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:49
+msgid "Ocean"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:50
+msgid "Amber"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:51
+msgid "Violet"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:52
+msgid "Custom"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:58
+msgid "Custom color:"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:70
+msgid "Choose custom color…"
+msgstr ""
+
+#: package/contents/ui/ConfigAppearance.qml:83
+msgid "Choose penguin color"
 msgstr ""
 
 #: package/contents/ui/FullRepresentation.qml:219
@@ -82,11 +130,11 @@ msgstr ""
 msgid "Search applications…"
 msgstr ""
 
-#: package/contents/ui/SystemActions.qml:43
+#: package/contents/ui/SystemActions.qml:72
 msgid "Session"
 msgstr ""
 
-#: package/contents/ui/SystemActions.qml:87
+#: package/contents/ui/SystemActions.qml:116
 msgid "Power"
 msgstr ""
 

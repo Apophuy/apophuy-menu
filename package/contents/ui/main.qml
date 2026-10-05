@@ -21,7 +21,26 @@ PlasmoidItem {
     toolTipMainText: i18n("Apophuy Application Launcher")
     toolTipSubText: i18n("Open the application launcher")
 
-    Plasmoid.icon: "start-here-kde"
+    readonly property color penguinAccentColor: {
+        switch (Plasmoid.configuration.iconColorPreset) {
+        case 1:
+            return "#2586c7";
+        case 2:
+            return "#d88919";
+        case 3:
+            return "#805bd4";
+        case 4:
+            return Plasmoid.configuration.iconCustomColor;
+        default:
+            return "#39d641";
+        }
+    }
+
+    readonly property bool penguinUsesOriginalColor: Plasmoid.configuration.iconColorPreset === 0
+
+    Plasmoid.icon: Plasmoid.configuration.launcherIcon === 0
+                   ? Qt.resolvedUrl("../images/launcher/penguin.png")
+                   : "start-here-kde"
 
     readonly property Kicker.RootModel applicationsRootModel: Kicker.RootModel {
         autoPopulate: false
@@ -56,6 +75,9 @@ PlasmoidItem {
 
     compactRepresentation: CompactRepresentation {
         appletRoot: root
+        launcherIcon: Plasmoid.configuration.launcherIcon
+        penguinAccentColor: root.penguinAccentColor
+        penguinUsesOriginalColor: root.penguinUsesOriginalColor
     }
 
     fullRepresentation: FullRepresentation {

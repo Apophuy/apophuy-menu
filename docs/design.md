@@ -9,9 +9,16 @@ a three-column application grid form the main workspace. Rounded cards and
 one-pixel borders establish hierarchy without introducing decorative panels or
 heavy shadows.
 
-The temporary panel icon remains the current icon-theme `start-here-kde` asset.
-It is not part of the final icon language. Milestone 7 remains gated on the two
-user references and design explanation required by the implementation plan.
+The default panel icon is an original, front-facing standing penguin created
+after the required user reference review. Its soft pseudo-3D finish uses a
+clear silhouette, controlled gloss, and restrained shadows so it remains
+recognizable in a panel. The face and belly stay ivory; beak and feet stay
+amber; the main body and flippers form one recolorable accent region.
+
+The Appearance page offers the approved original green palette, Ocean, Amber,
+Violet, and a custom color. Recoloring is restricted to that accent region,
+preserving the volume and contrast of the fixed features. A system-launcher
+icon remains available as a functional fallback.
 
 ## Theme modes
 
