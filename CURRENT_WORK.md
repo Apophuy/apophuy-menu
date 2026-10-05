@@ -43,7 +43,7 @@ The installed development package includes the latest code changes.
 
 - Added the project README with current-user installation, update, uninstall,
   verification, packaging, and compatibility guidance.
-- Added the GPL-2.0 license text and an initial changelog for version 0.1.0.
+- Added the GPL-2.0 license text for version 0.1.0.
 - Added a repeatable release script that builds translations, runs the static
   checks, creates a versioned `.plasmoid` archive, verifies ZIP integrity, and
   writes its SHA-256 checksum.
@@ -70,12 +70,10 @@ Milestone 9 is complete. Milestone 10 release handoff remains:
 1. Curate the three supplied screenshots listed in
    `docs/release-screenshots.md` from their original PNG files.
 2. Embed the selected dark-launcher and light-search screenshots in the README.
-3. Finish the changelog entry, rerun release checks, and tag the release only
-   after every gate passes.
+3. Rerun release checks and tag the release only after every gate passes.
 
 ## Working tree note
 
-The user-owned `assets/` concepts and
-`plasma6_launcher_implementation_plan.md` are ignored locally and must remain
+The user-owned `assets/` concepts remain ignored locally and must remain
 excluded from commits unless the user explicitly asks otherwise. Generated
 translation catalogs and `dist/` release archives are also ignored.
