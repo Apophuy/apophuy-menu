@@ -10,12 +10,12 @@
         "Description": "A simple and predictable application launcher for Plasma 6",
         "Description[ru]": "Простое и предсказуемое меню запуска приложений для Plasma 6",
         "EnabledByDefault": true,
-        "Icon": "/contents/images/launcher/penguin-flat.png",
+        "Icon": "/images/launcher/penguin-flat.png",
         "Id": "io.github.apophuy.applicationlauncher",
         "License": "GPL-3.0-or-later",
         "Name": "Apophuy Menu",
         "Name[ru]": "Меню Apophuy",
-        "Version": "0.1.2"
+        "Version": "0.1.3"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
     "X-Plasma-Provides": [
