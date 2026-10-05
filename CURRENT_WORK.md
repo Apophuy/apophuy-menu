@@ -56,21 +56,17 @@ The installed development package includes the latest code changes.
   revised package is installed, Plasma Shell has been restarted, and no Apophuy
   errors appeared in the restart journal.
 - The user supplied the three requested release views: dark launcher, light
-  search results, and Appearance settings. Their content is accepted; their
-  original PNG files still need to be copied into `docs/screenshots/`. The dark
-  launcher and light search images are selected for the README.
+  search results, and Appearance settings. Their content is accepted and
+  curated in `docs/screenshots/`; the dark launcher and light search images are
+  embedded in the README.
 - Opening the launcher now always resets its content to Favorites and clears the
   search query. The revised package is installed and Plasma Shell has been
   restarted; the user verified the real-panel reopening behavior.
 
 ## Resume from here
 
-Milestone 9 is complete. Milestone 10 release handoff remains:
-
-1. Curate the three supplied screenshots listed in
-   `docs/release-screenshots.md` from their original PNG files.
-2. Embed the selected dark-launcher and light-search screenshots in the README.
-3. Rerun release checks and tag the release only after every gate passes.
+Milestone 9 is complete. Milestone 10 is ready for the final release checks and
+local `v0.1.0` tag.
 
 ## Working tree note
 

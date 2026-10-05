@@ -7,6 +7,12 @@ keeping the interface deliberately small.
 The first release targets Debian 13 (Trixie), KDE Plasma 6.3, Qt 6.8, KDE
 Frameworks 6.13, and Wayland.
 
+## Screenshots
+
+![Apophuy Application Launcher in its dark appearance](docs/screenshots/launcher-dark.png)
+
+![Apophuy Application Launcher search in its light appearance](docs/screenshots/launcher-search.png)
+
 ## Features
 
 - Plasma application categories and native application launching
@@ -19,7 +25,7 @@ Frameworks 6.13, and Wayland.
 - Keyboard navigation, visible focus states, and HiDPI-aware layout
 
 Release screenshots are captured by the user from the real Plasma Wayland
-panel. The required views are listed in
+panel. The selected and supporting views are documented in
 [`docs/release-screenshots.md`](docs/release-screenshots.md).
 
 ## Install

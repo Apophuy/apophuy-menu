@@ -50,8 +50,7 @@ The README uses two product views:
 
 ## Review status
 
-The user supplied all three requested views on 2026-10-05. Their composition and
-content are accepted. The original PNG files still need to be copied into
-`docs/screenshots/` under the names above before the release is tagged. Once
-they are present, embed `launcher-dark.png` and `launcher-search.png` directly
-below the README introduction.
+The user supplied and curated all three requested views on 2026-10-05. Their
+composition and content are accepted. `launcher-dark.png` and
+`launcher-search.png` are embedded directly below the README introduction;
+`appearance-settings.png` remains as supporting documentation.
