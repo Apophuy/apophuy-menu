@@ -1,6 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2026 Apophuy
-    SPDX-License-Identifier: GPL-2.0-or-later
+    SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 pragma ComponentBehavior: Bound
@@ -18,8 +18,8 @@ PlasmoidItem {
 
     hideOnWindowDeactivate: true
     preferredRepresentation: compactRepresentation
-    toolTipMainText: i18n("Apophuy Application Launcher")
-    toolTipSubText: i18n("Open the application launcher")
+    toolTipMainText: i18n("Apophuy Menu")
+    toolTipSubText: i18n("Open the Apophuy menu")
 
     readonly property color penguinAccentColor: {
         switch (Plasmoid.configuration.iconColorPreset) {
@@ -40,12 +40,12 @@ PlasmoidItem {
 
     Plasmoid.icon: {
         switch (Plasmoid.configuration.launcherIcon) {
-        case 1:
-            return Qt.resolvedUrl("../images/launcher/penguin-flat.png");
+        case 0:
+            return Qt.resolvedUrl("../images/launcher/penguin.png");
         case 2:
             return "start-here-kde";
         default:
-            return Qt.resolvedUrl("../images/launcher/penguin.png");
+            return Qt.resolvedUrl("../images/launcher/penguin-flat.png");
         }
     }
 

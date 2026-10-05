@@ -46,7 +46,7 @@ Kicker demonstrates a smaller runner allow-list (`krunner_services`, system sett
 
 Current Kickoff uses a `PlasmoidItem` with compact and full representations, `preferredRepresentation: compactRepresentation`, and `Plasmoid.activationTogglesExpanded = true`. Its custom compact representation records `wasExpanded` on press and sets `expanded = !wasExpanded` on click. This avoids basing the toggle on state that Plasma may have changed during activation.
 
-`PlasmoidItem` in libplasma 6.3.5 defaults `hideOnWindowDeactivate` to true. The underlying `AppletPopup::focusOutEvent` hides only when neither an acceptable transient parent nor a transient child popup has focus. Stock Kickoff binds this property to its optional "Keep Open" setting; Apophuy Application Launcher will initially omit pinning and keep it true.
+`PlasmoidItem` in libplasma 6.3.5 defaults `hideOnWindowDeactivate` to true. The underlying `AppletPopup::focusOutEvent` hides only when neither an acceptable transient parent nor a transient child popup has focus. Stock Kickoff binds this property to its optional "Keep Open" setting; Apophuy Menu will initially omit pinning and keep it true.
 
 After a successful row/action trigger, stock Kickoff sets `expanded = false` when hide-on-deactivate is active. Kicker similarly closes after launches, Enter, Escape, and system actions. These explicit state transitions should be retained rather than waiting for the launched application to steal focus.
 
@@ -57,7 +57,7 @@ After a successful row/action trigger, stock Kickoff sets `expanded = false` whe
 The target workstation already uses Simple Application Launcher 2.5. Its
 installed package is byte-for-byte equivalent to the inspected upstream
 checkout, apart from repository-only files. It was inspected only as the UX
-reference required by the implementation plan; Apophuy Application Launcher
+reference required by the implementation plan; Apophuy Menu
 does not depend on or modify it.
 
 Simple Kickoff is a simplified fork of an older Kickoff. Its UX changes are useful:

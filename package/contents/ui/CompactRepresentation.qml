@@ -1,6 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2026 Apophuy
-    SPDX-License-Identifier: GPL-2.0-or-later
+    SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 pragma ComponentBehavior: Bound
@@ -15,7 +15,7 @@ MouseArea {
 
     required property PlasmoidItem appletRoot
 
-    property int iconVariant: 0
+    property int iconVariant: 1
     property color penguinAccentColor: "#39d641"
     property bool penguinUsesOriginalColor: true
     property bool wasExpanded: false
@@ -28,7 +28,7 @@ MouseArea {
     Layout.preferredWidth: implicitWidth
     Layout.preferredHeight: implicitHeight
 
-    Accessible.name: i18n("Apophuy Application Launcher")
+    Accessible.name: i18n("Apophuy Menu")
     Accessible.role: Accessible.Button
     activeFocusOnTab: true
     hoverEnabled: true

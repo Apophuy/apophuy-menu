@@ -1,6 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2026 Apophuy
-    SPDX-License-Identifier: GPL-2.0-or-later
+    SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 pragma ComponentBehavior: Bound
@@ -13,7 +13,7 @@ Item {
     id: root
 
     property color accentColor: "#39d641"
-    property int iconVariant: 0
+    property int iconVariant: 1
     property bool useOriginalColor: true
 
     readonly property bool usesSystemIcon: root.iconVariant === 2
@@ -29,9 +29,9 @@ Item {
         fillMode: Image.PreserveAspectFit
         mipmap: true
         smooth: true
-        source: root.iconVariant === 1
-                ? Qt.resolvedUrl("../images/launcher/penguin-flat.png")
-                : Qt.resolvedUrl("../images/launcher/penguin.png")
+        source: root.iconVariant === 0
+                ? Qt.resolvedUrl("../images/launcher/penguin.png")
+                : Qt.resolvedUrl("../images/launcher/penguin-flat.png")
         sourceSize.width: 512
         sourceSize.height: 512
         visible: !root.usesSystemIcon

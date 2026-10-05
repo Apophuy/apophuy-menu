@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-The product name is **Apophuy Application Launcher** and the package ID is
+The product name is **Apophuy Menu** and the package ID is
 `io.github.apophuy.applicationlauncher`. The first release targets Debian 13,
 Plasma 6.3.x, Qt 6.8, KF6 6.13, and Wayland. X11 compatibility is opportunistic
 and must not shape the design.
