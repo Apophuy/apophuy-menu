@@ -36,14 +36,14 @@ KCMUtils.SimpleKCM {
             id: launcherIcon
 
             Kirigami.FormData.label: i18n("Panel icon:")
-            model: [i18n("Apophuy Penguin"), i18n("System launcher icon")]
+            model: [i18n("Apophuy Penguin"), i18n("Flat Penguin"), i18n("System launcher icon")]
         }
 
         QQC2.ComboBox {
             id: iconColorPreset
 
             Kirigami.FormData.label: i18n("Penguin color:")
-            enabled: launcherIcon.currentIndex === 0
+            enabled: launcherIcon.currentIndex !== 2
             model: [
                 i18n("Original palette"),
                 i18n("Ocean"),
@@ -54,7 +54,7 @@ KCMUtils.SimpleKCM {
         }
 
         RowLayout {
-            visible: launcherIcon.currentIndex === 0 && iconColorPreset.currentIndex === 4
+            visible: launcherIcon.currentIndex !== 2 && iconColorPreset.currentIndex === 4
             Kirigami.FormData.label: i18n("Custom color:")
 
             Rectangle {

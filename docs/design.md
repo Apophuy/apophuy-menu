@@ -13,12 +13,15 @@ The default panel icon is an original, front-facing standing penguin created
 after the required user reference review. Its soft pseudo-3D finish uses a
 clear silhouette, controlled gloss, and restrained shadows so it remains
 recognizable in a panel. The face and belly stay ivory; beak and feet stay
-amber; the main body and flippers form one recolorable accent region.
+amber; the main body and flippers form one recolorable accent region. The
+user-provided flat penguin is a second built-in variant for users who prefer a
+more direct, high-contrast panel mark.
 
 The Appearance page offers the approved original green palette, Ocean, Amber,
-Violet, and a custom color. Recoloring is restricted to that accent region,
-preserving the volume and contrast of the fixed features. A system-launcher
-icon remains available as a functional fallback.
+Violet, and a custom color. The pseudo-3D penguin recolors only its accent
+region, preserving the volume and contrast of its fixed features; the flat
+penguin recolors its complete opaque silhouette while retaining its transparent
+face area. A system-launcher icon remains available as a functional fallback.
 
 ## Theme modes
 

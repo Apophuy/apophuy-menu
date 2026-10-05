@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Apophuy Application Launcher 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 09:06+0300\n"
+"POT-Creation-Date: 2026-10-05 09:23+0300\n"
 "PO-Revision-Date: 2026-10-04 19:47+0300\n"
 "Last-Translator: Apophuy\n"
 "Language-Team: English\n"
@@ -60,6 +60,10 @@ msgstr "Panel icon:"
 #: package/contents/ui/ConfigAppearance.qml:39
 msgid "Apophuy Penguin"
 msgstr "Apophuy Penguin"
+
+#: package/contents/ui/ConfigAppearance.qml:39
+msgid "Flat Penguin"
+msgstr "Flat Penguin"
 
 #: package/contents/ui/ConfigAppearance.qml:39
 msgid "System launcher icon"

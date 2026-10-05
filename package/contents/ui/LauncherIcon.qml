@@ -13,8 +13,10 @@ Item {
     id: root
 
     property color accentColor: "#39d641"
+    property int iconVariant: 0
     property bool useOriginalColor: true
-    property bool useSystemIcon: false
+
+    readonly property bool usesSystemIcon: root.iconVariant === 2
 
     implicitWidth: Kirigami.Units.iconSizes.large
     implicitHeight: Kirigami.Units.iconSizes.large
@@ -27,10 +29,12 @@ Item {
         fillMode: Image.PreserveAspectFit
         mipmap: true
         smooth: true
-        source: Qt.resolvedUrl("../images/launcher/penguin.png")
+        source: root.iconVariant === 1
+                ? Qt.resolvedUrl("../images/launcher/penguin-flat.png")
+                : Qt.resolvedUrl("../images/launcher/penguin.png")
         sourceSize.width: 512
         sourceSize.height: 512
-        visible: !root.useSystemIcon
+        visible: !root.usesSystemIcon
     }
 
     Image {
@@ -51,16 +55,16 @@ Item {
 
         colorization: 1
         colorizationColor: root.accentColor
-        maskEnabled: true
+        maskEnabled: root.iconVariant === 0
         maskSource: penguinAccentMask
         source: penguin
-        visible: !root.useSystemIcon && !root.useOriginalColor
+        visible: !root.usesSystemIcon && !root.useOriginalColor
     }
 
     Kirigami.Icon {
         anchors.fill: parent
 
         source: "start-here-kde"
-        visible: root.useSystemIcon
+        visible: root.usesSystemIcon
     }
 }

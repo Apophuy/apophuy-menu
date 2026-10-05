@@ -15,7 +15,7 @@ MouseArea {
 
     required property PlasmoidItem appletRoot
 
-    property int launcherIcon: 0
+    property int iconVariant: 0
     property color penguinAccentColor: "#39d641"
     property bool penguinUsesOriginalColor: true
     property bool wasExpanded: false
@@ -60,9 +60,8 @@ MouseArea {
 
     LauncherIcon {
         anchors.fill: parent
-        anchors.margins: Kirigami.Units.smallSpacing
 
-        useSystemIcon: root.launcherIcon !== 0
+        iconVariant: root.iconVariant
         accentColor: root.penguinAccentColor
         useOriginalColor: root.penguinUsesOriginalColor
     }

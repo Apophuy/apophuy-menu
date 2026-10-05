@@ -38,9 +38,16 @@ PlasmoidItem {
 
     readonly property bool penguinUsesOriginalColor: Plasmoid.configuration.iconColorPreset === 0
 
-    Plasmoid.icon: Plasmoid.configuration.launcherIcon === 0
-                   ? Qt.resolvedUrl("../images/launcher/penguin.png")
-                   : "start-here-kde"
+    Plasmoid.icon: {
+        switch (Plasmoid.configuration.launcherIcon) {
+        case 1:
+            return Qt.resolvedUrl("../images/launcher/penguin-flat.png");
+        case 2:
+            return "start-here-kde";
+        default:
+            return Qt.resolvedUrl("../images/launcher/penguin.png");
+        }
+    }
 
     readonly property Kicker.RootModel applicationsRootModel: Kicker.RootModel {
         autoPopulate: false
@@ -75,7 +82,7 @@ PlasmoidItem {
 
     compactRepresentation: CompactRepresentation {
         appletRoot: root
-        launcherIcon: Plasmoid.configuration.launcherIcon
+        iconVariant: Plasmoid.configuration.launcherIcon
         penguinAccentColor: root.penguinAccentColor
         penguinUsesOriginalColor: root.penguinUsesOriginalColor
     }

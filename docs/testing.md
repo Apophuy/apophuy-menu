@@ -271,5 +271,8 @@ standing penguin; it is not a copied Tux asset.
 | Packaged 512 px source and accent mask | pass; both preserve alpha |
 | Original palette / color-mask separation | pass; mask affects the green body and flippers, preserving face, belly, eyes, beak, and feet |
 | Static QML, package, and translation checks | pass; only documented host-context lint warnings |
-| Installed Plasma 6 panel load | pass; no Apophuy QML errors in the user-service journal after package upgrade and shell restart |
-| Light, dark, and transparent real-panel backgrounds; 150% and 200% scale | pending direct panel screenshots |
+| Installed Plasma 6 panel, dark theme, original palette | pass; user screenshot confirms the embedded penguin renders in the compact representation |
+| Installed Plasma 6 panel, dark theme, Ocean preset | pass; user screenshot confirms only the intended accent area is recolored |
+| Flat penguin, dark panel, Ocean preset | pass; user screenshot confirms every opaque green pixel is recolored while the transparent face remains panel background |
+| Compact-representation icon margins | pass; both bundled penguin variants fill the compact representation with no project-side padding or margins |
+| Light and transparent real-panel backgrounds; 150% and 200% scale | pending direct panel screenshots |

@@ -95,12 +95,14 @@ customized popup subtree; explicit modes override the popup's attached Kirigami
 Theme values and project-owned backgrounds. The complete token and system-action
 mapping is documented in `docs/design.md`.
 
-`LauncherIcon.qml` renders the approved Apophuy Penguin from the bundled
-512×512 raster asset. The original palette is preserved by default. For a
-color preset or a custom color, Qt 6 `MultiEffect` applies colorization only
-through `penguin-accent-mask.png`; the mask covers the green body and flippers
-while preserving the face, belly, eyes, beak, and feet. This keeps the
-pseudo-3D highlights and shadows instead of flattening the whole image.
+`LauncherIcon.qml` renders the approved pseudo-3D Apophuy Penguin and the
+user-provided flat penguin variant from bundled 512×512 raster assets. The
+original palette is preserved by default. For a color preset or a custom color,
+Qt 6 `MultiEffect` applies colorization through an accent mask only to the
+pseudo-3D asset: the mask covers the green body and flippers while preserving
+the face, belly, eyes, beak, and feet. The flat input contains only opaque
+green and transparent pixels, so it is colorized as a whole without a mask;
+the panel background remains visible through its transparent face area.
 
 The compact representation also offers the current icon-theme
 `start-here-kde` asset as a fallback choice. It is not a Plasma 5

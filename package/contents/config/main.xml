@@ -10,7 +10,7 @@
             <default>0</default>
         </entry>
         <entry name="launcherIcon" type="Int">
-            <label>Launcher panel icon: 0 = Apophuy Penguin, 1 = system launcher icon.</label>
+            <label>Launcher panel icon: 0 = Apophuy Penguin, 1 = flat Penguin, 2 = system launcher icon.</label>
             <default>0</default>
         </entry>
         <entry name="iconColorPreset" type="Int">
