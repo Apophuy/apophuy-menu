@@ -41,7 +41,7 @@ KDE Frameworks 6.13 и Wayland.
 Либо установите релизный архив:
 
 ```sh
-kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.3.plasmoid
+kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.4.plasmoid
 ```
 
 После установки войдите в режим редактирования панели Plasma, выберите
