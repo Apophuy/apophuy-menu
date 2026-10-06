@@ -220,13 +220,28 @@ FocusScope {
                         Accessible.description: i18n("Show favorite applications")
                         focus: root.showingFavorites && !root.searching
                         highlighted: root.showingFavorites && !root.searching
-                        icon.name: "bookmarks"
                         KeyNavigation.right: applicationList
                         text: i18n("Favorites")
 
                         background: DelegateBackground {
                             control: favoritesButton
                             design: design
+                        }
+
+                        contentItem: RowLayout {
+                            spacing: Kirigami.Units.smallSpacing
+
+                            NavigationIcon {
+                                iconName: "applications-featured"
+                            }
+
+                            PlasmaComponents.Label {
+                                Layout.fillWidth: true
+                                color: favoritesButton.highlighted ? design.selectedText : design.primaryText
+                                elide: Text.ElideRight
+                                text: favoritesButton.text
+                                verticalAlignment: Text.AlignVCenter
+                            }
                         }
 
                         onClicked: {
