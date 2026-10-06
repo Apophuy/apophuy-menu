@@ -74,6 +74,14 @@ Milestone 1 starts with Plasma's native lifecycle:
 
 `PlasmoidItem` defaults `hideOnWindowDeactivate` to true in installed libplasma 6.3.5. It will still be set explicitly to make the invariant visible. The backing `AppletPopup` handles focus loss and preserves focus for transient child popups. This behavior must be validated in a real Wayland panel because `plasmawindowed` explicitly disables hide-on-deactivate.
 
+The compact hover background follows the installed Plasma 6 `CompactApplet`
+contract for expanded feedback: it walks to the dynamic applet container and
+uses `getMargins(edge, true)` on the panel cross axis. This makes hover and
+expanded feedback occupy the same panel geometry instead of assuming a fixed
+panel thickness. If the container or `CompactApplet.qml` contract changes in a
+Plasma upgrade, this lookup must fall back to zero margins and be revalidated
+against the installed shell source and a real horizontal and vertical panel.
+
 ## UI composition direction
 
 The first functional layout keeps only:
@@ -114,6 +122,7 @@ compatibility path: all icon rendering and configuration uses Qt 6 and Plasma
 Before claiming support for a new Plasma version:
 
 1. compare every used private Kicker property, role, signal, and method with the new source;
-2. inspect current Kickoff/Kicker close and focus handling;
+2. inspect current Kickoff/Kicker close and focus handling and the shell
+   `CompactApplet` applet-container margin contract;
 3. run static QML/package checks;
 4. rerun the full popup regression matrix in `docs/testing.md` on Wayland.

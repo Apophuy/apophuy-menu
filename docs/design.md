@@ -102,11 +102,21 @@ complete button.
 
 - Hover uses the semantic `hover` fill and a one-pixel `hoverBorder` outline,
   so it remains distinguishable from a dark application-card surface.
+- Panel-launcher hover uses the applet container's real panel margins, matching
+  the geometry of Plasma's expanded-state frame at any horizontal or vertical
+  panel thickness. The expanded state adds a two-pixel focus-color outline.
 - Selection and press use `selected` with `selectedText`.
 - Keyboard focus uses a two-pixel `focus` outline.
 - Disabled navigation is reduced in opacity but remains legible.
 - Grouped system-action buttons expose menu semantics and localized accessible
   names; their menu rows combine native glyphs with full labels.
+- Favorites and application categories use the current desktop icon theme's
+  native 32-pixel artwork on a fully transparent component background. The
+  larger request deliberately selects full-color category artwork instead of
+  the small monochrome `*-symbolic` variants. Favorites uses the semantic
+  `applications-featured` star, while model categories retain their native
+  semantic icon names. Themes without full-color variants fall back through
+  the standard icon-theme inheritance chain.
 - Every launchable application tile always shows a star control at its upper
   right: an outline means “add to Favorites,” while a filled star means
   “remove from Favorites.” The filled star uses the semantic `favorite` gold

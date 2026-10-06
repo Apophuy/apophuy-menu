@@ -296,3 +296,17 @@ standing penguin; it is not a copied Tux asset.
 | Vertical panel positions | pass; user screenshot confirms the right-edge panel opens a complete, uncut popup inward from the screen edge |
 | Suspend/resume | pass; user suspended and resumed the session, then confirmed the launcher opened and worked normally |
 | Successful system-action close | pass; user invoked Lock from the Session menu, then verified after unlocking that the launcher was closed once with no stale popup |
+
+## Panel and navigation visual regression
+
+After changes to compact-representation geometry or navigation icon styling,
+verify these cases in an actual Plasma Wayland panel:
+
+| Check | Expected result |
+| --- | --- |
+| Closed launcher, pointer hover | Hover background reaches the same cross-panel edges as Plasma's expanded-state frame and does not move or resize the penguin |
+| Expanded launcher | Background geometry is unchanged from hover and a visible two-pixel accent border surrounds the active button |
+| Horizontal and vertical panels | Hover expansion follows the panel's container margins only along the panel's cross axis; no clipping or overlap with adjacent applets |
+| Favorites and every application category | Each row has a native full-color 32 px icon with no project-drawn background; the current icon theme may provide pseudo-depth, gradients, and highlights |
+| Follow System, Light, and Dark modes | Full-color navigation icons remain recognizable in idle, hover, selected, and keyboard-focus states, with no loss of label contrast |
+| About this widget | The author row exposes an email button for `apophuy@hotmail.com` and a website button for the GitHub repository |

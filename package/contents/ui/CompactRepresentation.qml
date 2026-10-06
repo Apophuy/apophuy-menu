@@ -8,6 +8,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 
 MouseArea {
@@ -19,6 +20,22 @@ MouseArea {
     property color penguinAccentColor: "#39d641"
     property bool penguinUsesOriginalColor: true
     property bool wasExpanded: false
+
+    readonly property bool vertical: Plasmoid.location === PlasmaCore.Types.LeftEdge || Plasmoid.location === PlasmaCore.Types.RightEdge
+
+    // Plasma's CompactApplet uses the same dynamic applet-container contract.
+    // qmllint disable missing-property
+    function panelMargin(edge: string): real {
+        let item = root;
+        while (item.parent) {
+            item = item.parent;
+            if (item["isAppletContainer"]) {
+                return item["getMargins"](edge, true);
+            }
+        }
+        return 0;
+    }
+    // qmllint enable missing-property
 
     implicitWidth: Kirigami.Units.iconSizes.large
     implicitHeight: Kirigami.Units.iconSizes.large
@@ -51,11 +68,17 @@ MouseArea {
     Accessible.onPressAction: root.appletRoot.expanded = !root.appletRoot.expanded
 
     Rectangle {
-        anchors.fill: parent
-        border.color: root.activeFocus ? Kirigami.Theme.focusColor : "transparent"
-        border.width: root.activeFocus ? 2 : 0
+        anchors {
+            fill: parent
+            bottomMargin: !root.vertical ? -root.panelMargin("bottom") : 0
+            leftMargin: root.vertical ? -root.panelMargin("left") : 0
+            rightMargin: root.vertical ? -root.panelMargin("right") : 0
+            topMargin: !root.vertical ? -root.panelMargin("top") : 0
+        }
+        border.color: root.appletRoot.expanded || root.activeFocus ? Qt.alpha(Kirigami.Theme.focusColor, 0.9) : (root.containsMouse ? Qt.alpha(Kirigami.Theme.textColor, 0.28) : "transparent")
+        border.width: root.appletRoot.expanded || root.activeFocus ? 2 : (root.containsMouse ? 1 : 0)
         color: root.appletRoot.expanded ? Qt.alpha(Kirigami.Theme.highlightColor, 0.28) : (root.containsMouse ? Qt.alpha(Kirigami.Theme.hoverColor, 0.2) : "transparent")
-        radius: width / 2
+        radius: Kirigami.Units.cornerRadius * 2
     }
 
     LauncherIcon {

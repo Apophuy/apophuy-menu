@@ -41,7 +41,7 @@ The development checkout can be installed for the current user without root:
 Alternatively, install a release archive:
 
 ```sh
-kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.3.plasmoid
+kpackagetool6 --type Plasma/Applet --install apophuy-application-launcher-0.1.4.plasmoid
 ```
 
 After installation, enter Plasma panel edit mode, choose **Add Widgets**, and
